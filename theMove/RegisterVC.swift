@@ -55,6 +55,7 @@ class RegisterVC: UIViewController {
             
             // Url to php register file
             let url = NSURL(string: "http://localhost/theMove/register.php")!
+            // let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/register.php")!
             let request = NSMutableURLRequest(URL: url);
             request.HTTPMethod = "POST";
             let body = "username=\(usernameTxt.text!.lowercaseString)&password=\(passwordTxt.text!)&fullname=\(firstnameTxt.text!)%20\(lastnameTxt.text!)";
