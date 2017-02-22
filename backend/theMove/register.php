@@ -18,8 +18,10 @@
         echo json_encode($returnArray);
         return;
     }
-    $salt = openssl_random_pseudo_bytes(20);
-    $secured_pass = sha1($password.$salt);
+
+    // Crypt the password
+    // $salt = openssl_random_pseudo_bytes(20);
+    // $secured_pass = sha1($password.$salt);
     
     // Build connection
     $file = parse_ini_file("../../../theMove.ini");
@@ -32,5 +34,25 @@
     $access = new access($host, $user, $pass, $name);
     $access->connect();
     
-    
+    $stmt = $access->conn->prepare("SELECT COUNT(*) FROM users");
+
+    if (!$stmt) {
+        printf("Query Prep Failed: %s\n", $access->conn->error);
+        exit;
+    }
+
+    $stmt->execute();
+    $result = $access->conn->get_result();
+    while($row = $result->fetch_assoc()){
+        if($row['username'] == $username){
+            // Username already exists
+            header("Location: failure.php");
+        }
+    }
+    #If the user already exists
+    if(isset($_GET['invalid'])){
+        echo "Sorry, username already exists. Please enter another.";
+    }
+
+
     ?>
