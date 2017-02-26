@@ -22,7 +22,7 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func register_click(sender: AnyObject) {
+    @IBAction func register_click(_ sender: AnyObject) {
         // If no text
         //let username_empty = usernameTxt.text!.isEmpty
         let password_empty = usernameTxt.text!.isEmpty
@@ -38,35 +38,36 @@ class RegisterVC: UIViewController {
             //    usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: UIColor.redColor()])
             //}
             if (password_empty) {
-                passwordTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSForegroundColorAttributeName: UIColor.redColor()])
+                passwordTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSForegroundColorAttributeName: UIColor.red])
             }
             if (email_empty) {
-                emailTxt.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSForegroundColorAttributeName: UIColor.redColor()])
+                emailTxt.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSForegroundColorAttributeName: UIColor.red])
             }
             if (firstname_empty) {
-                firstnameTxt.attributedPlaceholder = NSAttributedString(string: "first", attributes: [NSForegroundColorAttributeName: UIColor.redColor()])
+                firstnameTxt.attributedPlaceholder = NSAttributedString(string: "first", attributes: [NSForegroundColorAttributeName: UIColor.red])
             }
             if (lastname_empty) {
-                lastnameTxt.attributedPlaceholder = NSAttributedString(string: "last", attributes: [NSForegroundColorAttributeName: UIColor.redColor()])
+                lastnameTxt.attributedPlaceholder = NSAttributedString(string: "last", attributes: [NSForegroundColorAttributeName: UIColor.red])
             }
             
         } else {
             // Create new user in database
             
             // Url to php register file
-            let url = NSURL(string: "http://localhost/theMove/register.php")!
+            let url = URL(string: "http://localhost/theMove/register.php")!
             // let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/register.php")!
-            let request = NSMutableURLRequest(URL: url);
-            request.HTTPMethod = "POST";
-            let body = "username=\(usernameTxt.text!.lowercaseString)&password=\(passwordTxt.text!)&fullname=\(firstnameTxt.text!)%20\(lastnameTxt.text!)";
-            request.HTTPBody = body.dataUsingEncoding(NSUTF8StringEncoding);
+            let request = NSMutableURLRequest(url: url);
+            request.httpMethod = "POST";
+            let body = "username=\(usernameTxt.text!.lowercased())&password=\(passwordTxt.text!)&fullname=\(firstnameTxt.text!)%20\(lastnameTxt.text!)";
+            request.httpBody = body.data(using: String.Encoding.utf8);
             
-            NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {(data:NSData?, response:NSURLResponse?, error:NSError?) in
+            //URLSession.shared.dataTask(with: request, completionHandler: {(data:Data?, response:URLResponse?, error:NSError?) in
+            let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
                 if (error == nil) {
                     // send request
-                    dispatch_async(dispatch_get_main_queue(), {
+                    DispatchQueue.main.async(execute: {
                         do  {
-                            let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
+                            let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
                             
                             guard let parseJSON = json else {
                                 print("Error while parsing")
@@ -77,7 +78,7 @@ class RegisterVC: UIViewController {
                             if id != nil {
                                 print(parseJSON);
                             } else {
-                                self.usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: UIColor.redColor()])
+                                self.usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: UIColor.red])
                             }
                             
                         } catch {
@@ -88,7 +89,8 @@ class RegisterVC: UIViewController {
                     print("error: \(error)")
                 }
                 
-            }).resume()
+            });
+            task.resume();
             
         }
     }
