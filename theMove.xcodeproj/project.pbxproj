@@ -14,6 +14,7 @@
 		916E351B1E58B6730055EECB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916E35191E58B6730055EECB /* LaunchScreen.storyboard */; };
 		916E35261E58B6740055EECB /* theMoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E35251E58B6740055EECB /* theMoveTests.swift */; };
 		916E35311E58B6740055EECB /* theMoveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E35301E58B6740055EECB /* theMoveUITests.swift */; };
+		EC89876C1E60C7A60076A383 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89876B1E60C7A60076A383 /* DashboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		916E352C1E58B6740055EECB /* theMoveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = theMoveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		916E35301E58B6740055EECB /* theMoveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theMoveUITests.swift; sourceTree = "<group>"; };
 		916E35321E58B6740055EECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC89876B1E60C7A60076A383 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				916E35171E58B6730055EECB /* Assets.xcassets */,
 				916E35191E58B6730055EECB /* LaunchScreen.storyboard */,
 				916E351C1E58B6730055EECB /* Info.plist */,
+				EC89876B1E60C7A60076A383 /* DashboardView.swift */,
 			);
 			path = theMove;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				916E35131E58B6730055EECB /* ViewController.swift in Sources */,
+				EC89876C1E60C7A60076A383 /* DashboardView.swift in Sources */,
 				916E35111E58B6730055EECB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +486,7 @@
 				916E35371E58B6740055EECB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		916E35381E58B6740055EECB /* Build configuration list for PBXNativeTarget "theMoveTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +495,7 @@
 				916E353A1E58B6740055EECB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		916E353B1E58B6740055EECB /* Build configuration list for PBXNativeTarget "theMoveUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +504,7 @@
 				916E353D1E58B6740055EECB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
