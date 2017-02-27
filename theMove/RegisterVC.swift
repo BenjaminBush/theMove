@@ -22,7 +22,7 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func register_click(_ sender: AnyObject) {
+    @IBAction func register_click(sender: AnyObject) {
         // If no text
         //let username_empty = usernameTxt.text!.isEmpty
         let password_empty = usernameTxt.text!.isEmpty
@@ -54,9 +54,9 @@ class RegisterVC: UIViewController {
             // Create new user in database
             
             // Url to php register file
-            let url = URL(string: "http://localhost/theMove/register.php")!
-            // let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/register.php")!
-            let request = NSMutableURLRequest(url: url);
+            //let url = URL(string: "http://localhost/theMove/register.php")!
+            let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/register.php")!
+            let request = NSMutableURLRequest(url: url as URL);
             request.httpMethod = "POST";
             let body = "username=\(usernameTxt.text!.lowercased())&password=\(passwordTxt.text!)&fullname=\(firstnameTxt.text!)%20\(lastnameTxt.text!)";
             request.httpBody = body.data(using: String.Encoding.utf8);
