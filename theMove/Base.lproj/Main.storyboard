@@ -165,16 +165,6 @@
                                 <rect key="frame" x="67" y="432" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="WU9-wA-tmQ">
-                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WU9-wA-tmQ" id="m0w-tm-buM">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyS-AI-plQ">
                                 <rect key="frame" x="16" y="80" width="343" height="21"/>
@@ -190,12 +180,32 @@
                     <navigationItem key="navigationItem" id="1lc-4V-bqL"/>
                     <connections>
                         <outlet property="fullName" destination="PyS-AI-plQ" id="ive-ZS-Shc"/>
+                        <outlet property="tableView" destination="cwG-05-mYp" id="qGJ-eb-FKU"/>
                         <outlet property="userName" destination="pd5-Uv-Xfh" id="C9p-1h-AmV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVV-Vr-atL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2924" y="427.73613193403304"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="v2F-CD-yVq">
+            <objects>
+                <viewController id="Qsj-dG-3UZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="267-nW-KDj"/>
+                        <viewControllerLayoutGuide type="bottom" id="QU1-73-HfG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pb9-9k-Ilt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Skr-Ul-pda"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DGy-zg-mk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2956" y="1204"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="11o-yb-ftT">
@@ -228,11 +238,32 @@
                     </tabBar>
                     <connections>
                         <segue destination="Yd3-Bq-7ee" kind="relationship" relationship="viewControllers" id="5so-wp-MwP"/>
+                        <segue destination="tbm-TX-aMa" kind="relationship" relationship="viewControllers" id="eQQ-Hw-4vx"/>
+                        <segue destination="Qsj-dG-3UZ" kind="relationship" relationship="viewControllers" id="T45-fo-tE9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DnX-R7-zb4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1984.8" y="427.73613193403304"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="JCx-xk-FTY">
+            <objects>
+                <viewController id="tbm-TX-aMa" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OEa-dP-q5Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="z7Y-gD-LMa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="So6-C8-Ba2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="77W-hI-CsJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pnQ-ua-fzv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1985" y="1225"/>
         </scene>
     </scenes>
     <resources>
