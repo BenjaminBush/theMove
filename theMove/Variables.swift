@@ -10,6 +10,6 @@ import Foundation
 
 struct UserVariables {
     static var currUserID: String = ""
-     static var currUsername: String = ""
-     static var currFullname: String = ""
+     static var currUsername: String = "rachel"
+     static var currFullname: String = "Rachel Partridge"
 }

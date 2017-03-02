@@ -67,6 +67,9 @@
                                     <color key="titleColor" red="0.99953407049999998" green="0.99197086180000005" blue="0.68908201540000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.85820926050000002" green="0.77243533900000005" blue="0.1196031868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="signin_click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SK7-72-vTY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvT-mH-dia">
                                 <rect key="frame" x="63" y="344" width="73" height="30"/>
@@ -147,36 +150,36 @@
                                 <rect key="frame" x="67" y="166" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pd5-Uv-Xfh">
-                                <rect key="frame" x="148" y="119" width="79" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.9882352941176471" green="1" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recent Moves" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJj-0e-h4c">
-                                <rect key="frame" x="67" y="388" width="109" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pd5-Uv-Xfh">
+                                <rect key="frame" x="67" y="119" width="240" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.9882352941176471" green="1" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cwG-05-mYp">
-                                <rect key="frame" x="67" y="432" width="240" height="128"/>
+                                <rect key="frame" x="41" y="352" width="292" height="219"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyS-AI-plQ">
-                                <rect key="frame" x="16" y="80" width="343" height="21"/>
+                                <rect key="frame" x="16" y="72" width="343" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="0.9882352941176471" green="1" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recent Moves" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJj-0e-h4c">
+                                <rect key="frame" x="41" y="323" width="109" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.9882352941176471" green="1" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.21568627450980393" green="0.25490196078431371" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="eOQ-Tr-IVf" userLabel="Profile"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="images" selectedImage="images" id="eOQ-Tr-IVf" userLabel="Profile"/>
                     <navigationItem key="navigationItem" id="1lc-4V-bqL"/>
                     <connections>
                         <outlet property="fullName" destination="PyS-AI-plQ" id="ive-ZS-Shc"/>
@@ -188,7 +191,7 @@
             </objects>
             <point key="canvasLocation" x="2924" y="427.73613193403304"/>
         </scene>
-        <!--Item-->
+        <!--Friends-->
         <scene sceneID="v2F-CD-yVq">
             <objects>
                 <viewController id="Qsj-dG-3UZ" sceneMemberID="viewController">
@@ -201,7 +204,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Skr-Ul-pda"/>
+                    <tabBarItem key="tabBarItem" title="Friends" id="Skr-Ul-pda"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DGy-zg-mk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -246,7 +249,7 @@
             </objects>
             <point key="canvasLocation" x="1984.8" y="427.73613193403304"/>
         </scene>
-        <!--Item-->
+        <!--Dashboard-->
         <scene sceneID="JCx-xk-FTY">
             <objects>
                 <viewController id="tbm-TX-aMa" sceneMemberID="viewController">
@@ -259,7 +262,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="77W-hI-CsJ"/>
+                    <tabBarItem key="tabBarItem" title="Dashboard" id="77W-hI-CsJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnQ-ua-fzv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -268,5 +271,6 @@
     </scenes>
     <resources>
         <image name="Screen Shot 2017-02-26 at 4.26.04 PM" width="318" height="320"/>
+        <image name="images" width="30" height="30"/>
     </resources>
 </document>

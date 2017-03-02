@@ -25,6 +25,11 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func signin_click(_ sender: UIButton) {
+        //self.navigationController?.pushViewController(ProfileViewController, animated: true)
+        performSegue(withIdentifier: "login", sender: self)
+    }
+    
     @IBAction func register_click(_ sender: AnyObject) {
         // If no text
         //let username_empty = usernameTxt.text!.isEmpty

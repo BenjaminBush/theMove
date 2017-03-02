@@ -8,18 +8,17 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var pastEventsTitles: [String] = []
+    var pastEventsTitles: [String] = ["Kings", "group nap", "pet dogs"]
     
     // instantiate cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell =  UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         cell.textLabel!.text = pastEventsTitles[indexPath.row]
         return cell
@@ -80,6 +79,12 @@ class ProfileViewController: UIViewController {
         
         fullName.text = UserVariables.currFullname
         userName.text = UserVariables.currUsername
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        self.title = "My Profile"
         
     }
 
