@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class RegisterVC: UIViewController {
     
@@ -21,8 +22,7 @@ class RegisterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    @IBAction func register_click(sender: AnyObject) {
+    @IBAction func register_click(_ sender: Any) {
         // If no text
         //let username_empty = usernameTxt.text!.isEmpty
         let password_empty = usernameTxt.text!.isEmpty
@@ -55,7 +55,7 @@ class RegisterVC: UIViewController {
             
             // Url to php register file
             //let url = URL(string: "http://localhost/theMove/register.php")!
-            let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/register.php")!
+            let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/theMove/register.php")!
             let request = NSMutableURLRequest(url: url as URL);
             request.httpMethod = "POST";
             let body = "username=\(usernameTxt.text!.lowercased())&password=\(passwordTxt.text!)&fullname=\(firstnameTxt.text!)%20\(lastnameTxt.text!)";
@@ -67,7 +67,9 @@ class RegisterVC: UIViewController {
                     // send request
                     DispatchQueue.main.async(execute: {
                         do  {
-                            let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                            //let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                            
+                            let json = JSON(data: data!)
                             
                             guard let parseJSON = json else {
                                 print("Error while parsing")
@@ -94,5 +96,4 @@ class RegisterVC: UIViewController {
             
         }
     }
-    
 }
