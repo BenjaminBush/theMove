@@ -54,47 +54,43 @@ class RegisterVC: UIViewController {
             // Create new user in database
             
             // Url to php register file
-            //let url = URL(string: "http://localhost/theMove/register.php")!
             let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/theMove/register.php")!
+            
             let request = NSMutableURLRequest(url: url as URL);
             request.httpMethod = "POST";
-            let body = "username=\(usernameTxt.text!.lowercased())&password=\(passwordTxt.text!)&fullname=\(firstnameTxt.text!)%20\(lastnameTxt.text!)";
+            let body = "username=\(usernameTxt.text!.lowercased())&email=\(emailTxt.text!)&password=\(passwordTxt.text!)&firstname=\(firstnameTxt.text!)&lastname=\(lastnameTxt.text!)";
             request.httpBody = body.data(using: String.Encoding.utf8);
             
-            //URLSession.shared.dataTask(with: request, completionHandler: {(data:Data?, response:URLResponse?, error:NSError?) in
             let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
-                if (error == nil) {
-                    // send request
-                    DispatchQueue.main.async(execute: {
-                        do  {
-                            //let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
-                            
-                            let json = JSON(data: data!)
-                            
-//                            guard let parseJSON = json else {
-//                                print("Error while parsing")
-//                                return
-//                            }
-                            let id = json["message"]
-                            
-                            if id != nil {
-                                print("id : " + String(describing: id))
-                                print(json)
-                            } else {
-                                self.usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: UIColor.red])
-                            }
-                            
-                        } catch {
-                            print("Caught an error: \(error)")
-                        }
-                    })
-                } else {
-                    print("error: \(error)")
+                
+                if error != nil{
+                    print("1\(error)")
+                }
+                else{
+                    let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                    print("response string = \(responseString!)")
                 }
                 
-            });
-            task.resume();
-            
+                do {
+                    
+                    if let convertedJsonIntoDict = try JSONSerialization.jsonObject(with: data!, options: []) as? NSArray {
+                        
+                        // Print out dictionary
+                        print(convertedJsonIntoDict)
+                        
+                        // Get value by key
+                        let firstNameValue = (convertedJsonIntoDict[0] as! NSDictionary)["message"] as? String
+                        print("here = \(firstNameValue!)")
+                        
+                    }
+                    else{
+                        print("here")
+                    }
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+                });
+            task.resume()
         }
     }
 }
