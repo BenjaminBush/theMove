@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftyJSON
+//import SwiftyJSON
 
 class RegisterVC: UIViewController {
     
@@ -71,14 +71,15 @@ class RegisterVC: UIViewController {
                             
                             let json = JSON(data: data!)
                             
-                            guard let parseJSON = json else {
-                                print("Error while parsing")
-                                return
-                            }
-                            let id = parseJSON["id"]
+//                            guard let parseJSON = json else {
+//                                print("Error while parsing")
+//                                return
+//                            }
+                            let id = json["message"]
                             
                             if id != nil {
-                                print(parseJSON);
+                                print("id : " + String(describing: id))
+                                print(json)
                             } else {
                                 self.usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: UIColor.red])
                             }
