@@ -22,7 +22,7 @@
     }
 
     require 'database.php';
-    $stmt = $mysqli->prepare("SELECT COUNT(*) FROM users");
+    $stmt = $mysqli->prepare("SELECT user_id, username, first_name, last_name FROM users");
     if (!$stmt) {
 	printf("Query Prep Failed: %s\n", $mysqli->error);
 	exit;
@@ -32,7 +32,10 @@
     $result = $stmt->get_result();
     while($row = $result->fetch_assoc()) {
         if($row['username'] == $username) {
-            header("Location: failure.php");
+	    $returnArray["status"] = "400";
+	    $returnArray["message"] = "Username already taken, please choose a different username";
+	    echo json_encode($returnArray);
+            return;
         }
     }
 
