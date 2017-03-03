@@ -17,6 +17,7 @@
 		916E35451E58C5AD0055EECB /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E35441E58C5AD0055EECB /* RegisterVC.swift */; };
 		CC79336F1E6383A800948C0E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79336E1E6383A800948C0E /* ProfileViewController.swift */; };
 		CC7933711E63864E00948C0E /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7933701E63864E00948C0E /* Variables.swift */; };
+		CCD4F6E91E69D881000E8EFF /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD4F6E81E69D881000E8EFF /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		916E35441E58C5AD0055EECB /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		CC79336E1E6383A800948C0E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CC7933701E63864E00948C0E /* Variables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
+		CCD4F6E81E69D881000E8EFF /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				916E35141E58B6730055EECB /* Main.storyboard */,
 				CC79336E1E6383A800948C0E /* ProfileViewController.swift */,
 				916E35441E58C5AD0055EECB /* RegisterVC.swift */,
+				CCD4F6E81E69D881000E8EFF /* SwiftyJSON.swift */,
 				CC7933701E63864E00948C0E /* Variables.swift */,
 				916E35421E58BDB10055EECB /* background3.jpg */,
 				916E35171E58B6730055EECB /* Assets.xcassets */,
@@ -272,6 +275,7 @@
 				CC79336F1E6383A800948C0E /* ProfileViewController.swift in Sources */,
 				916E35111E58B6730055EECB /* AppDelegate.swift in Sources */,
 				916E35451E58C5AD0055EECB /* RegisterVC.swift in Sources */,
+				CCD4F6E91E69D881000E8EFF /* SwiftyJSON.swift in Sources */,
 				CC7933711E63864E00948C0E /* Variables.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
