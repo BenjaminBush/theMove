@@ -34,9 +34,9 @@ class RegisterVC: UIViewController {
         if (password_empty || email_empty || firstname_empty || lastname_empty) {
             
             
-            //if (username_empty) {
-            //    usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: UIColor.redColor()])
-            //}
+            if (username_empty) {
+                usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: UIColor.redColor()])
+            }
             if (password_empty) {
                 passwordTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSForegroundColorAttributeName: UIColor.red])
             }
