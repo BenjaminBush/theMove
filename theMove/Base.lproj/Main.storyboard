@@ -169,7 +169,7 @@
                                         <rect key="frame" x="0.0" y="28" width="240" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WU9-wA-tmQ" id="m0w-tm-buM">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -185,7 +185,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.21568627450980393" green="0.25490196078431371" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="eOQ-Tr-IVf" userLabel="Profile"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="images" id="eOQ-Tr-IVf" userLabel="Profile"/>
                     <navigationItem key="navigationItem" id="1lc-4V-bqL"/>
                     <connections>
                         <outlet property="fullName" destination="PyS-AI-plQ" id="ive-ZS-Shc"/>
@@ -236,6 +236,7 @@
     </scenes>
     <resources>
         <image name="Screen Shot 2017-02-26 at 4.26.04 PM" width="318" height="320"/>
+        <image name="images" width="30" height="30"/>
         <image name="logosmall" width="163" height="164"/>
     </resources>
 </document>
