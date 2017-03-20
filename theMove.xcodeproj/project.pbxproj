@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		916E35111E58B6730055EECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E35101E58B6730055EECB /* AppDelegate.swift */; };
-		916E35131E58B6730055EECB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E35121E58B6730055EECB /* ViewController.swift */; };
 		916E35161E58B6730055EECB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916E35141E58B6730055EECB /* Main.storyboard */; };
 		916E35181E58B6730055EECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916E35171E58B6730055EECB /* Assets.xcassets */; };
 		916E351B1E58B6730055EECB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916E35191E58B6730055EECB /* LaunchScreen.storyboard */; };
 		916E35261E58B6740055EECB /* theMoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E35251E58B6740055EECB /* theMoveTests.swift */; };
 		916E35311E58B6740055EECB /* theMoveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E35301E58B6740055EECB /* theMoveUITests.swift */; };
+<<<<<<< HEAD
+		916E35431E58BDB10055EECB /* background3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 916E35421E58BDB10055EECB /* background3.jpg */; };
+		916E35451E58C5AD0055EECB /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E35441E58C5AD0055EECB /* RegisterVC.swift */; };
+		CCBF16D21E69D92300DB4C08 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF16D11E69D92300DB4C08 /* SwiftyJSON.swift */; };
+=======
 		EC89876C1E60C7A60076A383 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89876B1E60C7A60076A383 /* DashboardView.swift */; };
+>>>>>>> master
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +42,6 @@
 /* Begin PBXFileReference section */
 		916E350D1E58B6730055EECB /* theMove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theMove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		916E35101E58B6730055EECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		916E35121E58B6730055EECB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		916E35151E58B6730055EECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		916E35171E58B6730055EECB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		916E351A1E58B6730055EECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,7 +52,13 @@
 		916E352C1E58B6740055EECB /* theMoveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = theMoveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		916E35301E58B6740055EECB /* theMoveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theMoveUITests.swift; sourceTree = "<group>"; };
 		916E35321E58B6740055EECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		916E35421E58BDB10055EECB /* background3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background3.jpg; sourceTree = "<group>"; };
+		916E35441E58C5AD0055EECB /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		CCBF16D11E69D92300DB4C08 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+=======
 		EC89876B1E60C7A60076A383 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+>>>>>>> master
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +110,10 @@
 			isa = PBXGroup;
 			children = (
 				916E35101E58B6730055EECB /* AppDelegate.swift */,
-				916E35121E58B6730055EECB /* ViewController.swift */,
 				916E35141E58B6730055EECB /* Main.storyboard */,
+				916E35441E58C5AD0055EECB /* RegisterVC.swift */,
+				CCBF16D11E69D92300DB4C08 /* SwiftyJSON.swift */,
+				916E35421E58BDB10055EECB /* background3.jpg */,
 				916E35171E58B6730055EECB /* Assets.xcassets */,
 				916E35191E58B6730055EECB /* LaunchScreen.storyboard */,
 				916E351C1E58B6730055EECB /* Info.plist */,
@@ -191,18 +203,21 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = theMove;
 				TargetAttributes = {
 					916E350C1E58B6730055EECB = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0820;
 					};
 					916E35201E58B6740055EECB = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0820;
 						TestTargetID = 916E350C1E58B6730055EECB;
 					};
 					916E352B1E58B6740055EECB = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0820;
 						TestTargetID = 916E350C1E58B6730055EECB;
 					};
 				};
@@ -233,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				916E351B1E58B6730055EECB /* LaunchScreen.storyboard in Resources */,
+				916E35431E58BDB10055EECB /* background3.jpg in Resources */,
 				916E35181E58B6730055EECB /* Assets.xcassets in Resources */,
 				916E35161E58B6730055EECB /* Main.storyboard in Resources */,
 			);
@@ -259,9 +275,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
+				CCBF16D21E69D92300DB4C08 /* SwiftyJSON.swift in Sources */,
+=======
 				916E35131E58B6730055EECB /* ViewController.swift in Sources */,
 				EC89876C1E60C7A60076A383 /* DashboardView.swift in Sources */,
+>>>>>>> master
 				916E35111E58B6730055EECB /* AppDelegate.swift in Sources */,
+				916E35451E58C5AD0055EECB /* RegisterVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,8 +350,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -373,8 +396,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -393,6 +418,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -405,6 +431,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = theMove.theMove;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -416,6 +443,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = theMove.theMove;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -427,6 +455,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = theMove.theMoveTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/theMove.app/theMove";
 			};
 			name = Debug;
@@ -439,6 +468,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = theMove.theMoveTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/theMove.app/theMove";
 			};
 			name = Release;
@@ -450,6 +480,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = theMove.theMoveUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = theMove;
 				USES_XCTRUNNER = YES;
 			};
@@ -462,6 +493,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = theMove.theMoveUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = theMove;
 				USES_XCTRUNNER = YES;
 			};
