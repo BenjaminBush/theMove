@@ -18,6 +18,8 @@
 		CC79336F1E6383A800948C0E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79336E1E6383A800948C0E /* ProfileViewController.swift */; };
 		CC7933711E63864E00948C0E /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7933701E63864E00948C0E /* Variables.swift */; };
 		CCBF16D21E69D92300DB4C08 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF16D11E69D92300DB4C08 /* SwiftyJSON.swift */; };
+		EC252B0D1E80422200B3C9EB /* preliminaryLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = EC252B0C1E80422200B3C9EB /* preliminaryLogo.png */; };
+		EC252B0F1E80425E00B3C9EB /* theMoveTransparentLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = EC252B0E1E80425E00B3C9EB /* theMoveTransparentLogo.png */; };
 		EC89876C1E60C7A60076A383 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC89876B1E60C7A60076A383 /* DashboardView.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		CC79336E1E6383A800948C0E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CC7933701E63864E00948C0E /* Variables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
 		CCBF16D11E69D92300DB4C08 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		EC252B0C1E80422200B3C9EB /* preliminaryLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = preliminaryLogo.png; path = theMove/preliminaryLogo.png; sourceTree = "<group>"; };
+		EC252B0E1E80425E00B3C9EB /* theMoveTransparentLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = theMoveTransparentLogo.png; sourceTree = "<group>"; };
 		EC89876B1E60C7A60076A383 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +91,7 @@
 		916E35041E58B6730055EECB = {
 			isa = PBXGroup;
 			children = (
+				EC252B0C1E80422200B3C9EB /* preliminaryLogo.png */,
 				916E350F1E58B6730055EECB /* theMove */,
 				916E35241E58B6740055EECB /* theMoveTests */,
 				916E352F1E58B6740055EECB /* theMoveUITests */,
@@ -115,6 +120,7 @@
 				CCBF16D11E69D92300DB4C08 /* SwiftyJSON.swift */,
 				916E35421E58BDB10055EECB /* background3.jpg */,
 				916E35171E58B6730055EECB /* Assets.xcassets */,
+				EC252B0E1E80425E00B3C9EB /* theMoveTransparentLogo.png */,
 				916E35191E58B6730055EECB /* LaunchScreen.storyboard */,
 				916E351C1E58B6730055EECB /* Info.plist */,
 				EC89876B1E60C7A60076A383 /* DashboardView.swift */,
@@ -247,7 +253,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC252B0F1E80425E00B3C9EB /* theMoveTransparentLogo.png in Resources */,
 				916E351B1E58B6730055EECB /* LaunchScreen.storyboard in Resources */,
+				EC252B0D1E80422200B3C9EB /* preliminaryLogo.png in Resources */,
 				916E35431E58BDB10055EECB /* background3.jpg in Resources */,
 				916E35181E58B6730055EECB /* Assets.xcassets in Resources */,
 				916E35161E58B6730055EECB /* Main.storyboard in Resources */,
