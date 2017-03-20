@@ -17,27 +17,14 @@ class RegisterVC: UIViewController {
     @IBOutlet var firstnameTxt: UITextField!
     @IBOutlet var lastnameTxt: UITextField!
     
-    // create global variable to keep track of userID
-    //var currUserID: String!
-    
     
     // Initialize Function
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-<<<<<<< HEAD
-    
-    @IBAction func signin_click(_ sender: UIButton) {
-        //self.navigationController?.pushViewController(ProfileViewController, animated: true)
-        performSegue(withIdentifier: "login", sender: self)
-    }
-    
-    @IBAction func register_click(_ sender: AnyObject) {
-=======
     @IBAction func register_click(_ sender: Any) {
->>>>>>> master
         // If no text
-        //let username_empty = usernameTxt.text!.isEmpty
+        let username_empty = usernameTxt.text!.isEmpty
         let password_empty = usernameTxt.text!.isEmpty
         let email_empty = usernameTxt.text!.isEmpty
         let firstname_empty = usernameTxt.text!.isEmpty
@@ -48,7 +35,7 @@ class RegisterVC: UIViewController {
             
             
             if (username_empty) {
-                usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: UIColor.redColor()])
+                usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: UIColor.red])
             }
             if (password_empty) {
                 passwordTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSForegroundColorAttributeName: UIColor.red])
@@ -67,49 +54,14 @@ class RegisterVC: UIViewController {
             // Create new user in database
             
             // Url to php register file
-<<<<<<< HEAD
-            //let url = URL(string: "http://localhost/theMove/register.php")!
-            let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/register.php")!
-=======
             let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/theMove/register.php")!
             
->>>>>>> master
             let request = NSMutableURLRequest(url: url as URL);
             request.httpMethod = "POST";
             let body = "username=\(usernameTxt.text!.lowercased())&email=\(emailTxt.text!)&password=\(passwordTxt.text!)&firstname=\(firstnameTxt.text!)&lastname=\(lastnameTxt.text!)";
             request.httpBody = body.data(using: String.Encoding.utf8);
             
             let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
-<<<<<<< HEAD
-                if (error == nil) {
-                    // send request
-                    DispatchQueue.main.async(execute: {
-                        do  {
-                            let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
-                            
-                            guard let parseJSON = json else {
-                                print("Error while parsing")
-                                return
-                            }
-                            let id = parseJSON["id"]
-                            
-                            if id != nil {
-                                // store user information
-                                UserVariables.currUserID = String(describing: id)
-                                UserVariables.currUsername = self.usernameTxt.text!
-                                UserVariables.currFullname = self.firstnameTxt.text! + " " + self.lastnameTxt.text!
-                                print(parseJSON);
-                            } else {
-                                self.usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: UIColor.red])
-                            }
-                            
-                        } catch {
-                            print("Caught an error: \(error)")
-                        }
-                    })
-                } else {
-                    print("error: \(error)")
-=======
                 
                 if error != nil{
                     print("1\(error)")
@@ -117,7 +69,6 @@ class RegisterVC: UIViewController {
                 else{
                     let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                     print("response string = \(responseString!)")
->>>>>>> master
                 }
                 
                 do {
@@ -138,7 +89,7 @@ class RegisterVC: UIViewController {
                 } catch let error as NSError {
                     print(error.localizedDescription)
                 }
-                });
+            });
             task.resume()
         }
     }
