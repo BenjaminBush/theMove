@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import SwiftyJSON
 
 class RegisterVC: UIViewController {
     
@@ -24,6 +25,7 @@ class RegisterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+<<<<<<< HEAD
     
     @IBAction func signin_click(_ sender: UIButton) {
         //self.navigationController?.pushViewController(ProfileViewController, animated: true)
@@ -31,6 +33,9 @@ class RegisterVC: UIViewController {
     }
     
     @IBAction func register_click(_ sender: AnyObject) {
+=======
+    @IBAction func register_click(_ sender: Any) {
+>>>>>>> master
         // If no text
         //let username_empty = usernameTxt.text!.isEmpty
         let password_empty = usernameTxt.text!.isEmpty
@@ -42,9 +47,9 @@ class RegisterVC: UIViewController {
         if (password_empty || email_empty || firstname_empty || lastname_empty) {
             
             
-            //if (username_empty) {
-            //    usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: UIColor.redColor()])
-            //}
+            if (username_empty) {
+                usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: UIColor.redColor()])
+            }
             if (password_empty) {
                 passwordTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSForegroundColorAttributeName: UIColor.red])
             }
@@ -62,15 +67,20 @@ class RegisterVC: UIViewController {
             // Create new user in database
             
             // Url to php register file
+<<<<<<< HEAD
             //let url = URL(string: "http://localhost/theMove/register.php")!
             let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/register.php")!
+=======
+            let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/theMove/register.php")!
+            
+>>>>>>> master
             let request = NSMutableURLRequest(url: url as URL);
             request.httpMethod = "POST";
-            let body = "username=\(usernameTxt.text!.lowercased())&password=\(passwordTxt.text!)&fullname=\(firstnameTxt.text!)%20\(lastnameTxt.text!)";
+            let body = "username=\(usernameTxt.text!.lowercased())&email=\(emailTxt.text!)&password=\(passwordTxt.text!)&firstname=\(firstnameTxt.text!)&lastname=\(lastnameTxt.text!)";
             request.httpBody = body.data(using: String.Encoding.utf8);
             
-            //URLSession.shared.dataTask(with: request, completionHandler: {(data:Data?, response:URLResponse?, error:NSError?) in
             let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
+<<<<<<< HEAD
                 if (error == nil) {
                     // send request
                     DispatchQueue.main.async(execute: {
@@ -99,12 +109,37 @@ class RegisterVC: UIViewController {
                     })
                 } else {
                     print("error: \(error)")
+=======
+                
+                if error != nil{
+                    print("1\(error)")
+                }
+                else{
+                    let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                    print("response string = \(responseString!)")
+>>>>>>> master
                 }
                 
-            });
-            task.resume();
-            
+                do {
+                    
+                    if let convertedJsonIntoDict = try JSONSerialization.jsonObject(with: data!, options: []) as? NSArray {
+                        
+                        // Print out dictionary
+                        print(convertedJsonIntoDict)
+                        
+                        // Get value by key
+                        let firstNameValue = (convertedJsonIntoDict[0] as! NSDictionary)["message"] as? String
+                        print("here = \(firstNameValue!)")
+                        
+                    }
+                    else{
+                        print("here")
+                    }
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+                });
+            task.resume()
         }
     }
-    
 }
