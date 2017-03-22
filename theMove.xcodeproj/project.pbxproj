@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68EA21FE1E8320A000390CBB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EA21FD1E8320A000390CBB /* LoginVC.swift */; };
 		916E35111E58B6730055EECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E35101E58B6730055EECB /* AppDelegate.swift */; };
 		916E35161E58B6730055EECB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916E35141E58B6730055EECB /* Main.storyboard */; };
 		916E35181E58B6730055EECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916E35171E58B6730055EECB /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		68EA21FD1E8320A000390CBB /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		916E350D1E58B6730055EECB /* theMove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theMove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		916E35101E58B6730055EECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		916E35151E58B6730055EECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				CCD174091E83252700638598 /* FriendsViewController.swift */,
 				916E35441E58C5AD0055EECB /* RegisterVC.swift */,
 				CC7933701E63864E00948C0E /* Variables.swift */,
+				68EA21FD1E8320A000390CBB /* LoginVC.swift */,
 				CCBF16D11E69D92300DB4C08 /* SwiftyJSON.swift */,
 				916E35421E58BDB10055EECB /* background3.jpg */,
 				916E35171E58B6730055EECB /* Assets.xcassets */,
@@ -292,6 +295,7 @@
 				CCD1740A1E83252700638598 /* FriendsViewController.swift in Sources */,
 				CC79336F1E6383A800948C0E /* ProfileViewController.swift in Sources */,
 				CCBF16D21E69D92300DB4C08 /* SwiftyJSON.swift in Sources */,
+				68EA21FE1E8320A000390CBB /* LoginVC.swift in Sources */,
 				EC89876C1E60C7A60076A383 /* DashboardView.swift in Sources */,
 				916E35111E58B6730055EECB /* AppDelegate.swift in Sources */,
 				CCD174081E83251200638598 /* EventsViewController.swift in Sources */,
