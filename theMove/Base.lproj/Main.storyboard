@@ -51,8 +51,8 @@
                                     <color key="titleShadowColor" red="0.85820926050000002" green="0.77243533900000005" blue="0.1196031868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="login_click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e4D-O4-bEF"/>
-                                    <segue destination="p9D-Ta-jhe" kind="show" identifier="move_to_loginvc" id="hdz-vY-5UE"/>
+                                    <action selector="login_click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="86Z-o7-d1e"/>
+                                    <segue destination="p9D-Ta-jhe" kind="show" identifier="send_to_loginVC" id="ZM0-AO-m7g"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="last" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h1C-Cj-uz0">
@@ -239,7 +239,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="theMove" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeF-OC-eXt">
                                 <rect key="frame" x="153" y="183" width="91" height="54"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="91" id="FWd-Ta-VCL"/>
+                                    <constraint firstAttribute="width" constant="91" id="Etl-bf-SKy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                 <color key="textColor" red="0.99953407049999998" green="0.99197086180000005" blue="0.68908201540000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
