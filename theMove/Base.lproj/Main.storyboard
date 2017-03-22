@@ -50,7 +50,6 @@
                                     <color key="titleColor" red="0.99953407049999998" green="0.99197086180000005" blue="0.68908201540000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.85820926050000002" green="0.77243533900000005" blue="0.1196031868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-<<<<<<< HEAD
                                 <connections>
                                     <action selector="signinClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9C5-dp-KKi"/>
                                 </connections>
@@ -65,8 +64,7 @@
                                     <color key="titleColor" red="0.99953407049999998" green="0.99197086180000005" blue="0.68908201540000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.85820926050000002" green="0.77243533900000005" blue="0.1196031868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-=======
->>>>>>> 1f1350018096f2c1a6becf608e879e6b261382f8
+
                                 <connections>
                                     <action selector="login_click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="86Z-o7-d1e"/>
                                     <segue destination="p9D-Ta-jhe" kind="show" identifier="send_to_loginVC" id="ZM0-AO-m7g"/>

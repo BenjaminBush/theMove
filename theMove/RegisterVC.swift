@@ -93,7 +93,6 @@ class RegisterVC: UIViewController {
             task.resume()
         }
     }
-<<<<<<< HEAD
     
     @IBAction func signinClicked(_ sender: UIButton) {
         //let newView = self.storyboard?.instantiateViewController(withIdentifier: "profile") as! ProfileViewController
@@ -102,10 +101,8 @@ class RegisterVC: UIViewController {
         performSegue(withIdentifier: "login", sender: self)
     }
     
-=======
 
     @IBAction func login_click(_ sender: Any) {
         performSegue(withIdentifier: "send_to_loginVC", sender: self);
     }
->>>>>>> 1f1350018096f2c1a6becf608e879e6b261382f8
 }
