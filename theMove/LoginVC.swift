@@ -51,26 +51,20 @@ class LoginVC: UIViewController {
                 if error != nil{
                     print("1\(error)")
                 }
-                else{
-                    let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                    print("response string = \(responseString!)")
-                }
                 
                 do {
+                    let json = JSON(data: data!)
+                    let status = json["status"].stringValue
+                    let message = json["message"].stringValue
                     
-                    if let convertedJsonIntoDict = try JSONSerialization.jsonObject(with: data!, options: []) as? NSArray {
-                        
-                        // Print out dictionary
-                        print(convertedJsonIntoDict)
-                        
-                        // Get value by key
-                        let firstNameValue = (convertedJsonIntoDict[0] as! NSDictionary)["message"] as? String
-                        print("here = \(firstNameValue!)")
-                        
-                    }
-                    else{
-                        print("here")
-                    }
+                    print(status)
+                    print(message)
+                    
+//                    if (status == "200") {
+//                        print("make segue")
+//                    } else {
+//                        print("do you wanna go to war bah-lah-kay?")
+//                    }
                 } catch let error as NSError {
                     print(error.localizedDescription)
                 }
