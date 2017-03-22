@@ -105,4 +105,5 @@ class RegisterVC: UIViewController {
     @IBAction func login_click(_ sender: Any) {
         performSegue(withIdentifier: "send_to_loginVC", sender: self);
     }
+   
 }
