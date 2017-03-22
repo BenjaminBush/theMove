@@ -93,4 +93,12 @@ class RegisterVC: UIViewController {
             task.resume()
         }
     }
+    
+    @IBAction func signinClicked(_ sender: UIButton) {
+        //let newView = self.storyboard?.instantiateViewController(withIdentifier: "profile") as! ProfileViewController
+        
+        //self.navigationController?.pushViewController(newView, animated: true)
+        performSegue(withIdentifier: "login", sender: self)
+    }
+    
 }
