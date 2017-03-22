@@ -187,7 +187,6 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.21568627450980393" green="0.25490196078431371" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <accessibility key="accessibilityConfiguration" identifier="profile"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="images" id="eOQ-Tr-IVf" userLabel="Profile"/>
                     <navigationItem key="navigationItem" id="1lc-4V-bqL"/>
@@ -243,7 +242,7 @@
         <!--Events-->
         <scene sceneID="Tjh-Lx-Xbx">
             <objects>
-                <viewController id="EN4-gc-Xlw" sceneMemberID="viewController">
+                <viewController id="EN4-gc-Xlw" customClass="EventsViewController" customModule="theMove" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6U1-zd-uLN"/>
                         <viewControllerLayoutGuide type="bottom" id="FI7-WV-Hmr"/>
@@ -262,7 +261,7 @@
         <!--Friends-->
         <scene sceneID="h9C-p8-WqF">
             <objects>
-                <viewController id="ewe-Ma-dqG" sceneMemberID="viewController">
+                <viewController id="ewe-Ma-dqG" customClass="FriendsViewController" customModule="theMove" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BQ2-Tc-2WA"/>
                         <viewControllerLayoutGuide type="bottom" id="qeE-FM-zSj"/>
