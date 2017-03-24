@@ -67,29 +67,29 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
                 let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                 print("response string = \(responseString!)")
                 
-                let json = JSON.init(parseJSON: responseString as! String)
+                //let json = JSON.init(parseJSON: responseString as! String)
                 
-                if let event = json.dictionary?["2"] {
-                    let name = event.dictionary?["event_name"]?.stringValue
-                    let attending = (event.dictionary?["numGuests"]?.stringValue)! + " people moving here"
-                    print("name: " + name!)
-                    print("guests: " + attending)
-                    self.eventsFromDatabase.append(MoveData(eventName: name!, peopleGoing: attending))
-                }
-                if let event = json.dictionary?["3"] {
-                    let name = event.dictionary?["event_name"]?.stringValue
-                    let attending = (event.dictionary?["numGuests"]?.stringValue)! + " people moving here"
-                    print("name: " + name!)
-                    print("guests: " + attending)
-                    self.eventsFromDatabase.append(MoveData(eventName: name!, peopleGoing: attending))
-                }
-                if let event = json.dictionary?["4"] {
-                    let name = event.dictionary?["event_name"]?.stringValue
-                    let attending = (event.dictionary?["numGuests"]?.stringValue)! + " people moving here"
-                    print("name: " + name!)
-                    print("guests: " + attending)
-                    self.eventsFromDatabase.append(MoveData(eventName: name!, peopleGoing: attending))
-                }
+//                if let event = json.dictionary?["2"] {
+//                    let name = event.dictionary?["event_name"]?.stringValue
+//                    let attending = (event.dictionary?["numGuests"]?.stringValue)! + " people moving here"
+//                    print("name: " + name!)
+//                    print("guests: " + attending)
+//                    self.eventsFromDatabase.append(MoveData(eventName: name!, peopleGoing: attending))
+//                }
+//                if let event = json.dictionary?["3"] {
+//                    let name = event.dictionary?["event_name"]?.stringValue
+//                    let attending = (event.dictionary?["numGuests"]?.stringValue)! + " people moving here"
+//                    print("name: " + name!)
+//                    print("guests: " + attending)
+//                    self.eventsFromDatabase.append(MoveData(eventName: name!, peopleGoing: attending))
+//                }
+//                if let event = json.dictionary?["4"] {
+//                    let name = event.dictionary?["event_name"]?.stringValue
+//                    let attending = (event.dictionary?["numGuests"]?.stringValue)! + " people moving here"
+//                    print("name: " + name!)
+//                    print("guests: " + attending)
+//                    self.eventsFromDatabase.append(MoveData(eventName: name!, peopleGoing: attending))
+//                }
                 
             }
             DispatchQueue.main.async {
