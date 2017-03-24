@@ -99,6 +99,7 @@ class RegisterVC: UIViewController {
         
         //self.navigationController?.pushViewController(newView, animated: true)
         performSegue(withIdentifier: "login", sender: self)
+        
     }
     
 
