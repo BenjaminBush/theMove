@@ -65,9 +65,7 @@ class LoginVC: UIViewController {
 //                    } else {
 //                        print("do you wanna go to war bah-lah-kay?")
 //                    }
-                } catch let error as NSError {
-                    print(error.localizedDescription)
-                }
+                } 
             });
             task.resume()
         }

@@ -22,6 +22,8 @@ class RegisterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+
+    
     @IBAction func register_click(_ sender: Any) {
         // If no text
         let username_empty = usernameTxt.text!.isEmpty
@@ -69,21 +71,16 @@ class RegisterVC: UIViewController {
                 do {
                     let json = JSON(data: data!)
                     let status = json["status"].stringValue
-                    let message = json["message"].stringValue
                     print(status)
                     if (status == "400") {
                         self.usernameTxt.text = "Username is already taken"
                         self.usernameTxt.textColor = UIColor.red
                     }
-                } catch let error as NSError {
-                    print(error.localizedDescription)
                 }
             });
             task.resume()
         }
     }
-
-    
 
     @IBAction func login_click(_ sender: Any) {
         performSegue(withIdentifier: "send_to_loginVC", sender: self);
