@@ -39,16 +39,6 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                print(self.eventsFromDatabase.count)
-            }
-        }
-    }
     
     func getEventData() {
         let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/theMove/getEvents.php")!
@@ -67,39 +57,41 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
                 let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                 print("response string = \(responseString!)")
                 
-                //let json = JSON.init(parseJSON: responseString as! String)
-                
-//                if let event = json.dictionary?["2"] {
-//                    let name = event.dictionary?["event_name"]?.stringValue
-//                    let attending = (event.dictionary?["numGuests"]?.stringValue)! + " people moving here"
-//                    print("name: " + name!)
-//                    print("guests: " + attending)
-//                    self.eventsFromDatabase.append(MoveData(eventName: name!, peopleGoing: attending))
-//                }
-//                if let event = json.dictionary?["3"] {
-//                    let name = event.dictionary?["event_name"]?.stringValue
-//                    let attending = (event.dictionary?["numGuests"]?.stringValue)! + " people moving here"
-//                    print("name: " + name!)
-//                    print("guests: " + attending)
-//                    self.eventsFromDatabase.append(MoveData(eventName: name!, peopleGoing: attending))
-//                }
-//                if let event = json.dictionary?["4"] {
-//                    let name = event.dictionary?["event_name"]?.stringValue
-//                    let attending = (event.dictionary?["numGuests"]?.stringValue)! + " people moving here"
-//                    print("name: " + name!)
-//                    print("guests: " + attending)
-//                    self.eventsFromDatabase.append(MoveData(eventName: name!, peopleGoing: attending))
-//                }
+                let json = JSON.init(parseJSON: responseString as! String)
+                var number_events:Int = 0
+                if let numEvents = json.dictionary?["num_events"]?.intValue {
+                    number_events = numEvents
+                }
+                for index in 0..<number_events {
+                    let i = String(index)
+                    if let event = json.dictionary?[i] {
+                        let name = event.dictionary?["event_name"]?.stringValue
+                        let attending = (event.dictionary?["numGuests"]?.stringValue)! + " people moving here"
+                        print("name: " + name!)
+                        print("guests: " + attending)
+                        self.eventsFromDatabase.append(MoveData(eventName: name!, peopleGoing: attending))
+                    }
+
+                }
                 
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                print(self.eventsFromDatabase.count)
             }
         });
         task.resume()
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
