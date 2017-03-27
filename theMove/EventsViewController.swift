@@ -11,6 +11,8 @@ import UIKit
 struct MoveData {
     var eventName: String
     var peopleGoing: String
+    var eventID: Int
+    var eventDate: String
 }
 
 class EventsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -22,7 +24,7 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
         
         let cell =  UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         cell.textLabel!.text = eventsFromDatabase[indexPath.row].eventName
-        cell.detailTextLabel?.text = eventsFromDatabase[indexPath.row].peopleGoing
+        cell.detailTextLabel?.text = eventsFromDatabase[indexPath.row].peopleGoing + " people moving here"
         
         return cell
     }
@@ -33,10 +35,20 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "eventDetails", sender: self)
         
-        let details = EventDetailViewController(nibName: "EventDetailViewController", bundle: nil)
-        navigationController?.pushViewController(details, animated: true)
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "eventDetails" {
+            if let destination = segue.destination as? EventDetailViewController {
+                let index = tableView.indexPathForSelectedRow?.row
+                destination.selectedEventname = eventsFromDatabase[index!].eventName
+                destination.selectedNumPeople = eventsFromDatabase[index!].peopleGoing
+                destination.selectedDate = eventsFromDatabase[index!].eventDate
+                destination.eventID = eventsFromDatabase[index!].eventID
+            }
+        }
     }
     
     
@@ -55,7 +67,7 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
             }
             else{
                 let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                print("response string = \(responseString!)")
+                //print("response string = \(responseString!)")
                 
                 let json = JSON.init(parseJSON: responseString as! String)
                 var number_events:Int = 0
@@ -66,10 +78,10 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
                     let i = String(index)
                     if let event = json.dictionary?[i] {
                         let name = event.dictionary?["event_name"]?.stringValue
-                        let attending = (event.dictionary?["numGuests"]?.stringValue)! + " people moving here"
-                        print("name: " + name!)
-                        print("guests: " + attending)
-                        self.eventsFromDatabase.append(MoveData(eventName: name!, peopleGoing: attending))
+                        let attending = event.dictionary?["numGuests"]?.stringValue
+                        let id = event.dictionary?["event_id"]?.intValue
+                        let date = event.dictionary?["event_date"]?.stringValue
+                        self.eventsFromDatabase.append(MoveData(eventName: name!, peopleGoing: attending!, eventID: id!, eventDate: date!))
                     }
 
                 }

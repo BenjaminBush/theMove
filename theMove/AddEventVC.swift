@@ -1,37 +1,30 @@
 //
-//  EventDetailViewController.swift
+//  AddEventVC.swift
 //  theMove
 //
-//  Created by Rachel on 3/22/17.
+//  Created by Rachel on 3/27/17.
 //  Copyright © 2017 theMove. All rights reserved.
 //
 
 import UIKit
 
-class EventDetailViewController: UIViewController {
-    var selectedEventname: String!
-    var selectedDate: String!
-    var selectedNumPeople: String!
+class AddEventVC: UIViewController {
+
+    @IBOutlet weak var eventTitle: UITextField!
+    @IBOutlet weak var address: UITextField!
+    @IBOutlet weak var dateTime: UIDatePicker!
     
-    var eventID: Int!
+    @IBOutlet weak var createButton: UIButton!
     
-    @IBOutlet weak var moveButton: UIButton!
+    @IBAction func createButtonPressed(_ sender: UIButton) {
+    }
     
-    @IBOutlet weak var eventName: UILabel!
-    @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var numPeople: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
-        moveButton.layer.cornerRadius = 5
-        
-        eventName.text = selectedEventname
-        numPeople.text = selectedNumPeople + " people moving"
-        date.text = selectedDate
-        
-        // use event ID to get more info from database
-        print("eventID: " + String(eventID))
+        createButton.layer.cornerRadius = 5
     }
 
     override func didReceiveMemoryWarning() {
