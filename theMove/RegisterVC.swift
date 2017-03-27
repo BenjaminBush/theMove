@@ -82,7 +82,11 @@ class RegisterVC: UIViewController {
             task.resume()
         }
     }
+
+    
+
     @IBAction func login_click(_ sender: Any) {
-        performSegue(withIdentifier: "move_to_loginvc", sender: self)
+        performSegue(withIdentifier: "send_to_loginVC", sender: self);
     }
+   
 }

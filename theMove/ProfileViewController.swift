@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    
     var pastEventsTitles: [String] = ["Kings", "group nap", "pet dogs"]
     
     // instantiate cells
