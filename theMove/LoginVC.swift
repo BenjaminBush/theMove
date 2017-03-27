@@ -60,11 +60,11 @@ class LoginVC: UIViewController {
                     print(status)
                     print(message)
                     
-//                    if (status == "200") {
-//                        print("make segue")
-//                    } else {
-//                        print("do you wanna go to war bah-lah-kay?")
-//                    }
+                    if (status == "200") {
+                        self.performSegue(withIdentifier: "login_success", sender: self)
+                  } else {
+                        print("do you wanna go to war bah-lah-kay?")
+                   }
                 } 
             });
             task.resume()

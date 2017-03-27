@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import SwiftyJSON
+
 
 class RegisterVC: UIViewController {
     
