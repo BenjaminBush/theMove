@@ -66,25 +66,14 @@ class RegisterVC: UIViewController {
                 if error != nil{
                     print("1\(error)")
                 }
-                else{
-                    let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                    print("response string = \(responseString!)")
-                }
-                
                 do {
-                    
-                    if let convertedJsonIntoDict = try JSONSerialization.jsonObject(with: data!, options: []) as? NSArray {
-                        
-                        // Print out dictionary
-                        print(convertedJsonIntoDict)
-                        
-                        // Get value by key
-                        let firstNameValue = (convertedJsonIntoDict[0] as! NSDictionary)["message"] as? String
-                        print("here = \(firstNameValue!)")
-                        
-                    }
-                    else{
-                        print("here")
+                    let json = JSON(data: data!)
+                    let status = json["status"].stringValue
+                    let message = json["message"].stringValue
+                    print(status)
+                    if (status == "400") {
+                        self.usernameTxt.text = "Username is already taken"
+                        self.usernameTxt.textColor = UIColor.red
                     }
                 } catch let error as NSError {
                     print(error.localizedDescription)
