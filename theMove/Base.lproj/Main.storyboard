@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="p9D-Ta-jhe">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="p9D-Ta-jhe">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -476,7 +476,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1647058824" green="0.1960784314" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Moves" selectedImage="calendaricon" id="edO-sU-pD9"/>
+                    <tabBarItem key="tabBarItem" title="Moves" image="calendaricon" selectedImage="calendaricon" id="edO-sU-pD9"/>
                     <navigationItem key="navigationItem" id="SDI-7Z-J8o"/>
                     <connections>
                         <outlet property="tableView" destination="fJc-Ap-Y4B" id="pV2-lX-xb3"/>
@@ -632,7 +632,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.16470588235294117" green="0.19607843137254902" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Friends" selectedImage="friendslisticon" id="Jdr-hU-SGg"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="friendslisticon" selectedImage="friendslisticon" id="Jdr-hU-SGg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcm-ea-gT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gmo-ws-3Df">
