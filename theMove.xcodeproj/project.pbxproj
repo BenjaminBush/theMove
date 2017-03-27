@@ -21,7 +21,6 @@
 		CCBF16D21E69D92300DB4C08 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBF16D11E69D92300DB4C08 /* SwiftyJSON.swift */; };
 		CCD174081E83251200638598 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD174071E83251200638598 /* EventsViewController.swift */; };
 		CCD1740A1E83252700638598 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD174091E83252700638598 /* FriendsViewController.swift */; };
-		CCD1740E1E832C2C00638598 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD1740D1E832C2C00638598 /* EventCell.swift */; };
 		CCD174161E83356300638598 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD174151E83356300638598 /* EventDetailViewController.swift */; };
 		EC252B0D1E80422200B3C9EB /* preliminaryLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = EC252B0C1E80422200B3C9EB /* preliminaryLogo.png */; };
 		EC252B0F1E80425E00B3C9EB /* theMoveTransparentLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = EC252B0E1E80425E00B3C9EB /* theMoveTransparentLogo.png */; };
@@ -66,7 +65,6 @@
 		CCBF16D11E69D92300DB4C08 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		CCD174071E83251200638598 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		CCD174091E83252700638598 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
-		CCD1740D1E832C2C00638598 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventCell.swift; path = ../EventCell.swift; sourceTree = "<group>"; };
 		CCD174151E83356300638598 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		EC252B0C1E80422200B3C9EB /* preliminaryLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = preliminaryLogo.png; path = theMove/preliminaryLogo.png; sourceTree = "<group>"; };
 		EC252B0E1E80425E00B3C9EB /* theMoveTransparentLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = theMoveTransparentLogo.png; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				CCD174151E83356300638598 /* EventDetailViewController.swift */,
-				CCD1740D1E832C2C00638598 /* EventCell.swift */,
 				916E35101E58B6730055EECB /* AppDelegate.swift */,
 				916E35141E58B6730055EECB /* Main.storyboard */,
 				CCD174071E83251200638598 /* EventsViewController.swift */,
@@ -299,7 +296,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCD1740A1E83252700638598 /* FriendsViewController.swift in Sources */,
-				CCD1740E1E832C2C00638598 /* EventCell.swift in Sources */,
 				CC79336F1E6383A800948C0E /* ProfileViewController.swift in Sources */,
 				CCBF16D21E69D92300DB4C08 /* SwiftyJSON.swift in Sources */,
 				68EA21FE1E8320A000390CBB /* LoginVC.swift in Sources */,
