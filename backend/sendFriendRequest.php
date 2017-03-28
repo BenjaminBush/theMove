@@ -1,8 +1,15 @@
 <?php
     // Use htmlentities to parse bad strings
-    $sender = htmlentities($_REQUEST["sender"]);
-    $receiver = htmlentities($_REQUEST["receiver"]);
-
+    if  (isset($_REQUEST["sender"])) {
+        $sender = htmlentities($_REQUEST["sender"]);
+    } else {
+        $sender = null;
+    }
+    if  (isset($_REQUEST["receiver"])) {
+        $receiver = htmlentities($_REQUEST["receiver"]);
+    } else {
+        $receiver = null;
+    }
  
     // Make sure all variables have value
     if (empty($sender) || empty($receiver)) {
@@ -14,20 +21,48 @@
 
     require 'database.php';
 
-    $stmt = $mysqli->prepare("SELECT member1_id, member2_id, status FROM connections WHERE member1_id=? AND member2_id=?");
+    $stmt0 = $mysqli->prepare("SELECT user_id FROM users WHERE username=?");
+    
+    if (!$stmt0) {
+        printf("Query Prep Failed: %s\n", $mysqli->error);
+    }
+
+    $stmt0->bind_param('s', $sender);
+    $stmt0->execute();
+
+    $stmt0->bind_result($sender_id);
+    $stmt0->fetch();
+    $stmt0->close();
+
+    $stmt1 = $mysqli->prepare("SELECT user_id FROM users WHERE username=?");
+    
+    if (!$stmt1) {
+        printf("Query Prep Failed: %s\n", $mysqli->error);
+    }
+
+    $stmt1->bind_param('s', $receiver);
+    $stmt1->execute();
+
+    $stmt1->bind_result($receiver_id);
+    $stmt1->fetch();
+    $stmt1->close();
     
 
-    if (!$stmt) {
+    $stmt2 = $mysqli->prepare("SELECT status, initiater_id FROM connections WHERE member1_id=? AND member2_id=?");
+    
+
+    if (!$stmt2) {
         printf("Query Prep Failed: %s\n", $mysqli->error);
     }
 
 
-    $stmt->bind_param('ss', $sender, $receiver);
-    $stmt->execute();
+    $stmt2->bind_param('ss', $sender_id, $receiver_id);
+    $stmt2->execute();
 
-    $stmt->bind_result($mem1_id, $mem2_id, $status);
-    $stmt->fetch();
-    $stmt->close();
+    $stmt2->bind_result($status, $initiater_id);
+    $stmt2->fetch();
+    $stmt2->close();
+
     if ($status == "BLOCKED") {
         $returnArray["status"] = "301";
         $returnArray["message"] = "Unable to friend this user";
@@ -37,39 +72,46 @@
         $returnArray["message"] = "You are already friends with this user";
         echo json_encode($returnArray);
     } else if ($status == "PENDING") { 
-        $stmt2 = $mysqli->prepare("INSERT INTO connections(member1_id, member2_id, status) VALUES(?, ?, ?)");
-        if (!$stmt2) {
-            printf("Query Prep Failed: %s\n", $mysqli->error);
-        }
+        if ($sender_id != $initiater_id) {
+            $stmt3 = $mysqli->prepare("UPDATE connections SET status=? WHERE member1_id=? AND member2_id=?");
+            if (!$stmt3) {
+                printf("Query Prep Failed: %s\n", $mysqli->error);
+            }
 
-        $accepted = "ACCEPTED";
-        $stmt2->bind_param('sss', $mem1_id, $mem2_id, $accepted);
-        $stmt2->execute();
-        if ($stmt2) {
-            $returnArray["status"] = "200";
-            $returnArray["message"] = "OK";
-            echo json_encode($returnArray);
-            return json_encode($returnArray);
+            $accepted = "ACCEPTED";
+            $stmt3->bind_param('sss', $sender_id, $receiver_id, $accepted);
+            $stmt3->execute();
+            if ($stmt3) {
+                $returnArray["status"] = "200";
+                $returnArray["message"] = "Successfully accepted a pending friend request";
+                echo json_encode($returnArray);
+                return json_encode($returnArray);
+            } else {
+                $returnArray["status"] = "400";
+                $returnArray["message"] = "Failed to accept friend request";
+                echo json_encode($returnArray);
+                return json_encode($returnArray);
+            }   
+            $stmt3->close(); 
         } else {
-            $returnArray["status"] = "400";
-            $returnArray["message"] = "Failed to accept friend request";
+            $returnArray["status"] = "305";
+            $returnArray["message"] = "You have already sent this person a friend request";
             echo json_encode($returnArray);
             return json_encode($returnArray);
-        }   
-        $stmt2->close();      
+        }
     } else {
        // Initiate the connection
-        $stmt2 = $mysqli->prepare("INSERT INTO connections(member1_id, member2_id, status) VALUES(?, ?, ?)");
-        if (!$stmt2) {
+        $stmt3 = $mysqli->prepare("INSERT INTO connections(member1_id, member2_id, status, initiater_id) VALUES(?, ?, ?, ?)");
+        if (!$stmt3) {
             printf("Query Prep Failed: %s\n", $mysqli->error);
         }
 
         $pending = "PENDING";
-        $stmt2->bind_param('sss', $mem1_id, $mem2_id, $pending);
-        $stmt2->execute();
-        if ($stmt2) {
+        $stmt3->bind_param('ssss', $sender_id, $receiver_id, $pending, $sender_id);
+        $stmt3->execute();
+        if ($stmt3) {
             $returnArray["status"] = "200";
-            $returnArray["message"] = "OK";
+            $returnArray["message"] = "Set friend request status to pending";
             echo json_encode($returnArray);
             return json_encode($returnArray);
         } else {
@@ -78,5 +120,6 @@
             echo json_encode($returnArray);
             return json_encode($returnArray);
         } 
+        $stmt3->close();
     }
 ?>
