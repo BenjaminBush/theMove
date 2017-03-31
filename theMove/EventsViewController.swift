@@ -96,13 +96,13 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     override func viewDidAppear(_ animated: Bool) {
-        
+
         DispatchQueue.global(qos: .userInitiated).async {
+            self.eventsFromDatabase.removeAll()
+            self.getEventData()
             
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
         }
+
     }
     
     override func viewDidLoad() {
@@ -113,16 +113,6 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.getEventData()
-            print(self.eventsFromDatabase.count)
-            
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//                print(self.eventsFromDatabase.count)
-//            }
-        }
         self.title = "Moves"
 
         // Do any additional setup after loading the view.

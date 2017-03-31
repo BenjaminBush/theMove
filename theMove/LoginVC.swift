@@ -36,6 +36,11 @@ class LoginVC: UIViewController {
                 passwordTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSForegroundColorAttributeName: UIColor.red])
             }
         } else {
+//            if let results = UserDefaults.standard.value(forKey: "username") {
+//                let username = usernameTxt.text
+//                UserDefaults.standard.setValue(username, forKey: "username")
+//            }
+
             // Create new user in database
             
             // Url to php register file
