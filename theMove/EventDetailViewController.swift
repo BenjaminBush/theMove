@@ -213,6 +213,10 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         task.resume()
     }
     
+//    DispatchQueue.main.async {
+//    // do something
+//    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -241,6 +245,13 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         //category.text = selectedCategory
         //host.text = selectedHost
         //numFriends.text = selectedFriends
+        
+        DispatchQueue.main.async {
+            self.address.text = self.selectedAddr
+            self.category.text = self.selectedCategory
+            self.host.text = self.selectedHost
+            self.numFriends.text = self.selectedFriends
+        }
         
         if let results = UserDefaults.standard.value(forKey: "eventid") {
             if (String(describing: results) == String(eventID)) {
