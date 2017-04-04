@@ -15,6 +15,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    var username: String!
+    var userid: String!
+    var firstName: String!
+    var lastName: String!
     
     var pastEventsTitles: [String] = []
     
@@ -32,15 +36,18 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func getUserEventData() {
+        
+        if let results = UserDefaults.standard.value(forKey: "userid") {
+            userid = String(describing: results)
+        }
+        
         let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/theMove/getUserEvents.php")!
         
         let request = NSMutableURLRequest(url: url as URL);
         request.httpMethod = "POST";
         
-        // fix this so user ID is not hardcoded!!!
         
-        
-        let body = "&user_id=13";
+        let body = "&user_id=" + userid;
         request.httpBody = body.data(using: String.Encoding.utf8);
         
         let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
@@ -74,52 +81,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         task.resume()
     }
-    
-    func getUserInfo() {
-        let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/theMove/getUserInfo.php")!
-        
-        let request = NSMutableURLRequest(url: url as URL);
-        request.httpMethod = "POST";
-        
-        // fix this so username is not hardcoded!!!
-        
-//        if let results = UserDefaults.standard.value(forKey: "username") {
-//            print("username " + String(describing: results))
-//        }
-        
-        let body = "username=sophia.veksler";
-        request.httpBody = body.data(using: String.Encoding.utf8);
-        
-        let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
-            
-            if error != nil{
-                print("1\(error)")
-            }
-            else{
-                let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                //print("response string = \(responseString!)")
-                
-                let json = JSON.init(parseJSON: responseString as! String)
-                
-                if let first = json.dictionary?["first_name"]?.stringValue {
-                    UserVariables.currFirstName = first
-                }
-                if let last = json.dictionary?["last_name"]?.stringValue {
-                    UserVariables.currLastName = last
-                }
-                if let userid = json.dictionary?["user_id"]?.stringValue {
-                    UserVariables.currUserID = userid
-                }
-                if let email = json.dictionary?["email"]?.stringValue {
-                    UserVariables.currEmail = email
-                }
-               
-            }
 
-        });
-        
-        task.resume()
-    }
     
 
     override func viewDidLoad() {
@@ -135,11 +97,50 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         getUserEventData()
         
-        getUserInfo()
+//        //testing print statements
+//        if let results = UserDefaults.standard.value(forKey: "firstname") {
+//            print("first name " + String(describing: results))
+//        }
+//        if let results = UserDefaults.standard.value(forKey: "userid") {
+//            print("user id " + String(describing: results))
+//        }
+//        
+//        
+//        if let results = UserDefaults.standard.value(forKey: "firstname") {
+//            firstName = String(describing: results)
+//        }
+//        if let results = UserDefaults.standard.value(forKey: "lastname") {
+//            lastName = String(describing: results)
+//        }
+//        if let results = UserDefaults.standard.value(forKey: "username") {
+//            userName.text = "@" + String(describing: results)
+//        }
+//        
+//        fullName.text = firstName + " " + lastName
         
-        fullName.text = UserVariables.currFirstName + " " + UserVariables.currLastName
-        userName.text = "@" + UserVariables.currUsername
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //testing print statements
+        if let results = UserDefaults.standard.value(forKey: "firstname") {
+            print("first name " + String(describing: results))
+        }
+        if let results = UserDefaults.standard.value(forKey: "userid") {
+            print("user id " + String(describing: results))
+        }
         
+        
+        if let results = UserDefaults.standard.value(forKey: "firstname") {
+            firstName = String(describing: results)
+        }
+        if let results = UserDefaults.standard.value(forKey: "lastname") {
+            lastName = String(describing: results)
+        }
+        if let results = UserDefaults.standard.value(forKey: "username") {
+            userName.text = "@" + String(describing: results)
+        }
+        
+        fullName.text = firstName + " " + lastName
     }
 
     override func didReceiveMemoryWarning() {

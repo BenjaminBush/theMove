@@ -32,7 +32,7 @@ class AddEventVC: UIViewController {
         let cat = category.text
         
         let body1 = "host=test&name=" + name! + "&date=" + String(describing: date)
-        let body2 = "&address=" + addr! + "&category="
+        let body2 = "&address=" + addr!
         let body3 = cat! + "&active=true"
         
         let body = body1+body2+body3;

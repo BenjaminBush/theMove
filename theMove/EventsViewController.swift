@@ -20,6 +20,8 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     var eventsFromDatabase: [MoveData] = []
     
+    var username: String!
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell =  UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
@@ -57,7 +59,12 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
         
         let request = NSMutableURLRequest(url: url as URL);
         request.httpMethod = "POST";
-        let body = "username=test";
+        
+        if let results = UserDefaults.standard.value(forKey: "username") {
+            username = String(describing: results)
+        }
+        
+        let body = "username=" + username;
         request.httpBody = body.data(using: String.Encoding.utf8);
         
         let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
@@ -114,6 +121,10 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
         
         
         self.title = "Moves"
+        
+        if let results = UserDefaults.standard.value(forKey: "firstname") {
+            print("first name " + String(describing: results))
+        }
 
         // Do any additional setup after loading the view.
     }

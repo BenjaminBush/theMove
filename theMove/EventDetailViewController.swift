@@ -24,6 +24,8 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     var userGoing = false
     
+    var userid: String!
+    
     @IBOutlet weak var moveButton: UIButton!
     
     @IBOutlet weak var eventName: UILabel!
@@ -160,9 +162,11 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         request.httpMethod = "POST";
         
         // fix this so user ID is not hardcoded!!!
+        if let results = UserDefaults.standard.value(forKey: "userid") {
+            userid = String(describing: results)
+        }
         
-        
-        let body = "event_id=" + String(eventID) + "&user_id=19";
+        let body = "event_id=" + String(eventID) + "&user_id=" + userid
         request.httpBody = body.data(using: String.Encoding.utf8);
         
         let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
