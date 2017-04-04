@@ -52,9 +52,12 @@
     $stmt2->execute();
     if ($stmt2) {
         $returnArray["status"] = "200";
-	$returnArray["message"] = "OK";
-	echo json_encode($returnArray);
-	return json_encode($returnArray);
+        $returnArray["message"] = "OK";
+        $returnArray["username"] = $username;
+        $returnArray["first_name"] = $firstname;
+        $returnArray["last_name"] = $lastname;
+        echo json_encode($returnArray);
+        return json_encode($returnArray);
     } else {
 	$returnArray["status"] = "400";
 	$returnArray["message"] = "Failed to insert user into the database";
