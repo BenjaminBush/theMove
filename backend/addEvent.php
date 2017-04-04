@@ -11,7 +11,6 @@
     $date = htmlentities($_REQUEST["date"]);
     $addr = htmlentities($_REQUEST["address"]);
     $numGuests = 0;
-    $category = htmlentities($_REQUEST["category"]);
     $active = htmlentities($_REQUEST["active"]);
 
  
@@ -45,7 +44,7 @@
         printf("Query Prep Failed: %s\n", $mysqli->error);
     }
 
-    $stmt->bind_param('isssisi', $host_id, $name, $date, $addr, $numGuests, $active);
+    $stmt->bind_param('isssii', $host_id, $name, $date, $addr, $numGuests, $active);
     $stmt->execute();
 
     if ($stmt) {
