@@ -15,8 +15,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    var username: String!
+    var userid: String!
+    var firstName: String!
+    var lastName: String!
     
-    var pastEventsTitles: [String] = ["Kings", "group nap", "pet dogs"]
+    var pastEventsTitles: [String] = []
     
     // instantiate cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -31,46 +35,53 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
     }
     
-    func loadPastEvents() {
-        let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/pastEvents.php")!
+    func getUserEventData() {
+        
+        if let results = UserDefaults.standard.value(forKey: "userid") {
+            userid = String(describing: results)
+        }
+        
+        let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/theMove/getUserEvents.php")!
+        
         let request = NSMutableURLRequest(url: url as URL);
         request.httpMethod = "POST";
         
-        let userID = UserVariables.currUserID
-        let body = "id=\(userID)"
+        
+        let body = "&user_id=" + userid;
         request.httpBody = body.data(using: String.Encoding.utf8);
         
-        //URLSession.shared.dataTask(with: request, completionHandler: {(data:Data?, response:URLResponse?, error:NSError?) in
         let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
-            if (error == nil) {
-                // send request
-                DispatchQueue.main.async(execute: {
-                    do  {
-                        let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
-                        
-                        // display event data in table view
-                        // use JSON to populate pastEventsTitles
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                        
-                        guard let parseJSON = json else {
-                            print("Error while parsing")
-                            return
-                        }
-                        print(String(describing: parseJSON))
-                        
-                    } catch {
-                        print("Caught an error: \(error)")
-                    }
-                })
-            } else {
-                print("error: \(error)")
-            }
             
+            if error != nil{
+                print("1\(error)")
+            }
+            else{
+                let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                //print("response string = \(responseString!)")
+                
+                let json = JSON.init(parseJSON: responseString as! String)
+                var number_events:Int = 0
+                if let numEvents = json.dictionary?["num_events"]?.intValue {
+                    number_events = numEvents
+                }
+                for index in 0..<number_events {
+                    let i = String(index)
+                    if let event = json.dictionary?[i] {
+                        let name = event.dictionary?["event_name"]?.stringValue
+                        self.pastEventsTitles.append(name!)
+                    }
+                    
+                }
+                
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         });
-        task.resume();
+        
+        task.resume()
     }
+
     
 
     override func viewDidLoad() {
@@ -78,15 +89,58 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Do any additional setup after loading the view.
         
-        fullName.text = UserVariables.currFullname
-        userName.text = UserVariables.currUsername
-        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         self.title = "My Profile"
         
+        getUserEventData()
+        
+//        //testing print statements
+//        if let results = UserDefaults.standard.value(forKey: "firstname") {
+//            print("first name " + String(describing: results))
+//        }
+//        if let results = UserDefaults.standard.value(forKey: "userid") {
+//            print("user id " + String(describing: results))
+//        }
+//        
+//        
+//        if let results = UserDefaults.standard.value(forKey: "firstname") {
+//            firstName = String(describing: results)
+//        }
+//        if let results = UserDefaults.standard.value(forKey: "lastname") {
+//            lastName = String(describing: results)
+//        }
+//        if let results = UserDefaults.standard.value(forKey: "username") {
+//            userName.text = "@" + String(describing: results)
+//        }
+//        
+//        fullName.text = firstName + " " + lastName
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //testing print statements
+        if let results = UserDefaults.standard.value(forKey: "firstname") {
+            print("first name " + String(describing: results))
+        }
+        if let results = UserDefaults.standard.value(forKey: "userid") {
+            print("user id " + String(describing: results))
+        }
+        
+        
+        if let results = UserDefaults.standard.value(forKey: "firstname") {
+            firstName = String(describing: results)
+        }
+        if let results = UserDefaults.standard.value(forKey: "lastname") {
+            lastName = String(describing: results)
+        }
+        if let results = UserDefaults.standard.value(forKey: "username") {
+            userName.text = "@" + String(describing: results)
+        }
+        
+        fullName.text = firstName + " " + lastName
     }
 
     override func didReceiveMemoryWarning() {
