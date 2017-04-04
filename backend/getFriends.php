@@ -8,7 +8,7 @@
     // Use htmlentities to parse bad strings
     require 'database.php';
     $current_user = $_REQUEST["user_id"];
-    $stmt = $mysqli->prepare("SELECT users.first_name, users.last_name, users.username, connections.status FROM connections INNER JOIN users ON connections.member1_id = $current_user AND connections.member2_id = users.user_id");
+    $stmt = $mysqli->prepare("SELECT users.first_name, users.last_name, users.username, connections.status FROM connections INNER JOIN users ON connections.member1_id = $current_user WHERE connections.member2_id = users.user_id");
     if (!$stmt) {
 	printf("Query Prep Failed: %s\n", $mysqli->error);
 	exit;
