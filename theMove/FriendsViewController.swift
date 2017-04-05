@@ -113,14 +113,19 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
                 if let status = json.dictionary?["status"]?.stringValue {
                     if(String(status) != "200") {
                         if let message = json.dictionary?["message"]?.stringValue {
-                            self.errorMessage.isHidden = false
-                            self.errorMessage.text = message
+                            OperationQueue.main.addOperation {
+                                print("reached error")
+                                self.errorMessage.isHidden = false
+                                self.errorMessage.text = message
+                            }
                         }
                     }
                 }
                 
             }
             DispatchQueue.main.async {
+                self.friendsFromDatabase.removeAll()
+                self.getFriendData()
                 self.acceptedtableView.reloadData()
             }
         });

@@ -13,11 +13,6 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
     var selectedDate: String!
     var selectedNumPeople: String!
     
-    var selectedAddr: String!
-    var selectedCategory: String!
-    var selectedHost: String!
-    var selectedFriends: String = "0"
-    
     var eventID: Int!
     
     var friendsAttending: [String] = []
@@ -31,7 +26,6 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var numPeople: UILabel!
     
     @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var category: UILabel!
     @IBOutlet weak var host: UILabel!
     @IBOutlet weak var numFriends: UILabel!
     
@@ -180,25 +174,31 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 let json = JSON.init(parseJSON: responseString as! String)
                 
                 if let addr = json.dictionary?["event_address"]?.stringValue {
-                    self.selectedAddr = addr
+                    OperationQueue.main.addOperation {
+                        self.address.text = addr
+                    }
+                    
                 }
-                if let cat = json.dictionary?["category"]?.stringValue {
-                    self.selectedCategory = cat
+
+                OperationQueue.main.addOperation {
+                    var firstName: String!
+                    var lastName: String!
+                    if let hostFirst = json.dictionary?["host_firstname"]?.stringValue {
+                        firstName = hostFirst
+                    }
+                    if let hostLast = json.dictionary?["host_lastname"]?.stringValue {
+                        lastName = hostLast
+                    }
+                
+                    self.host.text = "Host: " + firstName + " " + lastName
                 }
-                var firstName: String!
-                var lastName: String!
-                if let hostFirst = json.dictionary?["host_firstname"]?.stringValue {
-                    firstName = hostFirst
-                }
-                if let hostLast = json.dictionary?["host_lastname"]?.stringValue {
-                    lastName = hostLast
-                }
-                self.selectedHost = firstName + " " + lastName
                 
                 // get friends
                 if let numFriends = json.dictionary?["numFriendsAttending"]?.intValue {
                     if(numFriends > 0) {
-                        self.selectedFriends = String(numFriends)
+                        OperationQueue.main.addOperation {
+                            self.numFriends.text = String(numFriends)
+                        }
                         for result in json["friends"].arrayValue {
                             let first = result["first_name"].stringValue
                             let last = result["last_name"].stringValue
@@ -241,17 +241,6 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         numPeople.text = selectedNumPeople + " people moving"
         date.text = selectedDate
         
-        //address.text = selectedAddr
-        //category.text = selectedCategory
-        //host.text = selectedHost
-        //numFriends.text = selectedFriends
-        
-        OperationQueue.main.addOperation {
-            self.address.text = self.selectedAddr
-            self.category.text = self.selectedCategory
-            self.host.text = self.selectedHost
-            self.numFriends.text = self.selectedFriends
-        }
         
         if let results = UserDefaults.standard.value(forKey: "eventid") {
             if (String(describing: results) == String(eventID)) {

@@ -84,6 +84,20 @@ class AddEventVC: UIViewController {
             
             task.resume()
             
+//            // add user to this move
+//            if let results = UserDefaults.standard.value(forKey: "eventid") {
+//
+//                // user is going to a diff event so move them here instead
+//                removeUser(eventToRemove: results as! String)
+//                moveUser()
+//                    
+//                
+//            }
+//                
+//            else {
+//                // user has not yet selected a move                
+//                moveUser()
+//            }
         }
         
     }
