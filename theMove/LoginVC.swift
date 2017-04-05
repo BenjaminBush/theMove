@@ -74,7 +74,10 @@ class LoginVC: UIViewController {
                     print(message)
                     
                     if (status == "200") {
-                        self.performSegue(withIdentifier: "login_success", sender: self)
+                        OperationQueue.main.addOperation {
+                            self.performSegue(withIdentifier: "login_success", sender: self)
+                        }
+                        
                   } else {
                         print("do you wanna go to war bah-lah-kay?")
                    }

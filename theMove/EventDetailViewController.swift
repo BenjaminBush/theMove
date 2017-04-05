@@ -246,7 +246,7 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         //host.text = selectedHost
         //numFriends.text = selectedFriends
         
-        DispatchQueue.main.async {
+        OperationQueue.main.addOperation {
             self.address.text = self.selectedAddr
             self.category.text = self.selectedCategory
             self.host.text = self.selectedHost

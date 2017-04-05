@@ -184,7 +184,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WU9-wA-tmQ" id="m0w-tm-buM">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -291,7 +291,6 @@
                                 </state>
                                 <connections>
                                     <action selector="login_click:" destination="p9D-Ta-jhe" eventType="touchUpInside" id="A2q-3n-CFV"/>
-                                    <segue destination="Fek-vf-I2x" kind="show" identifier="login_success" id="nNf-hZ-Ywn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXs-Ei-AnQ">
@@ -333,6 +332,7 @@
                     <connections>
                         <outlet property="passwordTxt" destination="xSK-fD-s0g" id="QsT-vy-5Yf"/>
                         <outlet property="usernameTxt" destination="etm-ng-2xr" id="0Tc-Br-uFY"/>
+                        <segue destination="Fek-vf-I2x" kind="show" identifier="login_success" id="TmK-Lj-3pB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3e-JV-VmL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -479,7 +479,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IpC-Jr-wev" id="8t3-91-Mr4">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -573,7 +573,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QfH-He-w8q" id="m3D-8h-Kdp">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -654,7 +654,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7XY-Fy-BzX" id="YvM-qz-mxM">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -722,6 +722,6 @@
         <image name="images" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vHR-pU-p5F"/>
+        <segue reference="TmK-Lj-3pB"/>
     </inferredMetricsTieBreakers>
 </document>
