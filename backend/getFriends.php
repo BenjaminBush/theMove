@@ -27,9 +27,9 @@
     else{
         $returnArray["status"] = "1";
         $returnArray["message"] = "Loaded friends1 successfully!";
-        $returnArray["num_friends"] = $num_friends2;
+        $returnArray["num_friends"] = $num_friends;
         // $index = 0;
-        while($row = $result2->fetch_assoc()) {
+        while($row = $result->fetch_assoc()) {
             $returnArray[$index]["first_name"]= $row["first_name"];
             $returnArray[$index]["last_name"] = $row["last_name"];
             $returnArray[$index]["username"] = $row["username"];
