@@ -82,6 +82,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         task.resume()
     }
 
+    @IBAction func logOutClicked(_ sender: UIButton) {
+        print("log out")
+    }
     
 
     override func viewDidLoad() {
@@ -94,41 +97,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         self.title = "My Profile"
-        
-        getUserEventData()
-        
-//        //testing print statements
-//        if let results = UserDefaults.standard.value(forKey: "firstname") {
-//            print("first name " + String(describing: results))
-//        }
-//        if let results = UserDefaults.standard.value(forKey: "userid") {
-//            print("user id " + String(describing: results))
-//        }
-//        
-//        
-//        if let results = UserDefaults.standard.value(forKey: "firstname") {
-//            firstName = String(describing: results)
-//        }
-//        if let results = UserDefaults.standard.value(forKey: "lastname") {
-//            lastName = String(describing: results)
-//        }
-//        if let results = UserDefaults.standard.value(forKey: "username") {
-//            userName.text = "@" + String(describing: results)
-//        }
-//        
-//        fullName.text = firstName + " " + lastName
+
         
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
-        //testing print statements
-        if let results = UserDefaults.standard.value(forKey: "firstname") {
-            print("first name " + String(describing: results))
-        }
-        if let results = UserDefaults.standard.value(forKey: "userid") {
-            print("user id " + String(describing: results))
-        }
         
+        pastEventsTitles.removeAll()
+        getUserEventData()
         
         if let results = UserDefaults.standard.value(forKey: "firstname") {
             firstName = String(describing: results)

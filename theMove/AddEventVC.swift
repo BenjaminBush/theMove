@@ -18,6 +18,8 @@ class AddEventVC: UIViewController {
     
     @IBOutlet weak var category: UITextField!
     
+    var username: String!
+    
     @IBAction func createButtonPressed(_ sender: UIButton) {
         let url = NSURL(string: "http://ec2-35-164-58-73.us-west-2.compute.amazonaws.com/~theMove/theMove/addEvent.php")!
         
@@ -31,9 +33,13 @@ class AddEventVC: UIViewController {
         let addr = address.text
         let cat = category.text
         
-        let body1 = "host=test&name=" + name! + "&date=" + String(describing: date)
+        if let results = UserDefaults.standard.value(forKey: "username") {
+            username = String(describing: results)
+        }
+        
+        let body1 = "host=" + username + "&name=" + name! + "&date=" + String(describing: date)
         let body2 = "&address=" + addr!
-        let body3 = cat! + "&active=true"
+        let body3 = cat! + "&active=1"
         
         let body = body1+body2+body3;
         

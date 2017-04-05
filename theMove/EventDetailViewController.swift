@@ -22,8 +22,6 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     var friendsAttending: [String] = []
     
-    var userGoing = false
-    
     var userid: String!
     
     @IBOutlet weak var moveButton: UIButton!
@@ -58,11 +56,13 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
             if (String(describing: results) == String(eventID)) {
                 // user is already going to this event, so remove them from it
                 
-                removeUser(eventToRemove: String(eventID))
+                removeUser(eventToRemove: results as! String)
+                moveButton.backgroundColor = UIColor.yellow
                 UserDefaults.standard.removeObject(forKey: "eventid")
             }
             else {
                 // user is moving, but to a different event --> move them here and remove them from prev event
+                moveButton.backgroundColor = UIColor.red
                 removeUser(eventToRemove: results as! String)
                 moveUser()
                 
@@ -71,6 +71,7 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         
         else {
             // user has not yet selected a move
+            moveButton.backgroundColor = UIColor.red
             
             moveUser()
         }
@@ -79,7 +80,6 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func moveUser () {
-        print("user added to event")
         
         let id = String(eventID)
         UserDefaults.standard.setValue(id, forKey: "eventid")
@@ -89,9 +89,11 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         let request = NSMutableURLRequest(url: url as URL);
         request.httpMethod = "POST";
         
-        // fix this so user ID is not hardcoded!!!
+        if let results = UserDefaults.standard.value(forKey: "userid") {
+            userid = String(describing: results)
+        }
         
-        let body = "event_id=" + String(eventID) + "&user_id=19";
+        let body = "event_id=" + String(eventID) + "&user_id=" + userid
         request.httpBody = body.data(using: String.Encoding.utf8);
         
         let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
@@ -106,7 +108,7 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 let json = JSON.init(parseJSON: responseString as! String)
                 if let response = json.dictionary?["status"]?.stringValue {
                     if(response == "1") {
-                        self.userGoing = true
+                        print("move user worked " + self.userid)
                         self.moveButton.backgroundColor = UIColor.red
                     }
                 }
@@ -124,9 +126,11 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         let request = NSMutableURLRequest(url: url as URL);
         request.httpMethod = "POST";
         
-        // fix this so user ID is not hardcoded!!!
+        if let results = UserDefaults.standard.value(forKey: "userid") {
+            userid = String(describing: results)
+        }
         
-        let body = "event_id=" + eventToRemove + "&user_id=19";
+        let body = "event_id=" + eventToRemove + "&user_id=" + userid
         request.httpBody = body.data(using: String.Encoding.utf8);
         
         let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
@@ -141,11 +145,7 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 let json = JSON.init(parseJSON: responseString as! String)
                 if let response = json.dictionary?["status"]?.stringValue {
                     if(response == "1") {
-                        print("user removed")
-                        //self.userGoing = true
-                        //self.moveButton.backgroundColor = UIColor.white
-                        
-                        //UserDefaults.standard.removeObject(forKey: "eventid")
+                        print("user removed " + self.userid)
                     }
                 }
             }
@@ -161,7 +161,6 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         let request = NSMutableURLRequest(url: url as URL);
         request.httpMethod = "POST";
         
-        // fix this so user ID is not hardcoded!!!
         if let results = UserDefaults.standard.value(forKey: "userid") {
             userid = String(describing: results)
         }
@@ -227,9 +226,6 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         // Do any additional setup after loading the view.
         
         moveButton.layer.cornerRadius = 5
-        if(userGoing) {
-            moveButton.backgroundColor = UIColor.red
-        }
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -265,6 +261,7 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
 
         
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

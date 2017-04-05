@@ -121,10 +121,6 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
         
         
         self.title = "Moves"
-        
-        if let results = UserDefaults.standard.value(forKey: "firstname") {
-            print("first name " + String(describing: results))
-        }
 
         // Do any additional setup after loading the view.
     }
