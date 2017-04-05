@@ -24,7 +24,7 @@
         }
         $stmt2->execute();
         $result2 = $stmt2->get_result();
-        $num_friends = $result2->num_rows2;
+        $num_friends2 = $result2->num_rows;
         if ($num_friends2 == 0) {
             $returnArray["status"] = "0";
             $returnArray["message"] = "No friends found. Add some!";
@@ -33,10 +33,10 @@
         }
         else{
             $returnArray["status"] = "1";
-            $returnArray["message"] = "Loaded friends successfully!";
-            $returnArray["num_friends"] = $num_friends;
+            $returnArray["message"] = "Loaded friends2 successfully!";
+            $returnArray["num_friends"] = $num_friends2;
             $index = 0;
-        while($row = $result->fetch_assoc()) {
+        while($row = $result2->fetch_assoc()) {
             $returnArray[$index]["first_name"]= $row["first_name"];
             $returnArray[$index]["last_name"] = $row["last_name"];
             $returnArray[$index]["username"] = $row["username"];
