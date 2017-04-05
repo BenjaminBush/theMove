@@ -23,8 +23,7 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
     }
 
-    
-    @IBAction func register_click(_ sender: Any) {
+    @IBAction func register_click(_ sender: UIButton) {
         // If no text
         let username_empty = usernameTxt.text!.isEmpty
         let password_empty = usernameTxt.text!.isEmpty
@@ -65,22 +64,38 @@ class RegisterVC: UIViewController {
             
             let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
                 
+                //                if error != nil{
+                //                    print("1\(error)")
+                //                }
+                //                do {
+                //                    let json = JSON(data: data!)
+                //                    let status = json["status"].stringValue
+                //                    print("status " + status)
+                //                    if (status == "400") {
+                //                        self.usernameTxt.text = "Username is already taken"
+                //                        self.usernameTxt.textColor = UIColor.red
+                //                    }
+                //                }
                 if error != nil{
                     print("1\(error)")
                 }
-                do {
-                    let json = JSON(data: data!)
-                    let status = json["status"].stringValue
-                    print(status)
-                    if (status == "400") {
-                        self.usernameTxt.text = "Username is already taken"
-                        self.usernameTxt.textColor = UIColor.red
+                else{
+                    let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                    print("response string = \(responseString!)")
+                    
+                    let json = JSON.init(parseJSON: responseString as! String)
+                    
+                    if let status = json.dictionary?["status"]?.stringValue {
+                        print(status)
                     }
+                    
+                    
                 }
             });
             task.resume()
         }
     }
+
 
     @IBAction func login_click(_ sender: Any) {
         performSegue(withIdentifier: "send_to_loginVC", sender: self);
