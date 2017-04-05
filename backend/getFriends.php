@@ -10,63 +10,75 @@
     $current_user = intval($_REQUEST["user_id"]);
     $stmt = $mysqli->prepare("SELECT users.first_name, users.last_name, users.username, connections.status FROM connections INNER JOIN users ON connections.member1_id = $current_user WHERE connections.member2_id = users.user_id");
     if (!$stmt) {
-	printf("Query Prep Failed: %s\n", $mysqli->error);
-	exit;
+       printf("Query Prep Failed: %s\n", $mysqli->error);
+       exit;
     }
     $stmt->execute();
     $result = $stmt->get_result();
     $num_friends = $result->num_rows;
+    $index = 0;
+
     if ($num_friends == 0) {
-        $returnArray["status"] = "0";
-        $returnArray["message"] = "No friends found. Add some!";
-        echo json_encode($returnArray);
-        return;
+            $returnArray["status"] = "0";
+            $returnArray["message"] = "No friends found in first column.";
+            // echo json_encode($returnArray);
+            // return;
     }
+    else{
         $returnArray["status"] = "1";
-        $returnArray["message"] = "Loaded friends successfully!";
+        $returnArray["message"] = "Loaded friends1 successfully!";
         $returnArray["num_friends"] = $num_friends;
-        $index = 0;
-    while($row = $result->fetch_assoc()) {
-        $returnArray[$index]["first_name"]= $row["first_name"];
-        $returnArray[$index]["last_name"] = $row["last_name"];
-        $returnArray[$index]["username"] = $row["username"];
-        $returnArray[$index]["status"] = $row["status"];
-        $index += 1;
+        // $index = 0;
+        while($row = $result->fetch_assoc()) {
+            $returnArray[$index]["first_name"]= $row["first_name"];
+            $returnArray[$index]["last_name"] = $row["last_name"];
+            $returnArray[$index]["username"] = $row["username"];
+            $returnArray[$index]["status"] = $row["status"];
+            $index += 1;
+        }
+    // echo json_encode($returnArray);
+    //     return;
+    }
+
+
+
+
+    //if ($num_friends == 0) {
+        
+    $stmt2 = $mysqli->prepare("SELECT users.first_name, users.last_name, users.username, connections.status FROM connections INNER JOIN users ON connections.member2_id = $current_user WHERE connections.member1_id = users.user_id");
+    if (!$stmt2) {
+        printf("Query Prep Failed: %s\n", $mysqli->error);
+        exit;
+    }
+    $stmt2->execute();
+    $result2 = $stmt2->get_result();
+    $num_friends2 = $result2->num_rows;
+    if ($num_friends2 == 0) {
+        $returnArray["status"] = "0";
+        $returnArray["message"] = "No friends found in second column.";
+        // echo json_encode($returnArray);
+        // return;
+    }
+    else{
+        $returnArray["status"] = "1";
+        $returnArray["message"] = "Loaded friends2 successfully!";
+        $returnArray["num_friends"] = $num_friends2;
+        // $index = 0;
+        while($row = $result2->fetch_assoc()) {
+            $returnArray[$index]["first_name"]= $row["first_name"];
+            $returnArray[$index]["last_name"] = $row["last_name"];
+            $returnArray[$index]["username"] = $row["username"];
+            $returnArray[$index]["status"] = $row["status"];
+            $index += 1;
         }
         echo json_encode($returnArray);
         return;
-    // $stmt->execute();
-    // $result = $stmt->get_result();
-    // $num_friends = $result->num_rows;
-    // if ($num_friends == 0) {
-    //     $returnArray["status"] = "0";
-    //     $returnArray["message"] = "No friends. Add some!";
-    //     echo json_encode($returnArray);
-    //     return;
-    // }
-    //     $returnArray["status"] = "1";
-    //     $returnArray["message"] = "Loaded friends successfully!";
-    //     $returnArray["num_friends"] = $num_friends;
-    //     $index = 0;
-
-    // while($row = $result->fetch_assoc()) {
-    //     $returnArray[$index]["member2_id"] = $row["member2_id"];
-    //     $returnArray[$index]["status"] = $row["status"];
-    //     $index += 1;
-    //     echo json_encode($returnArray);
-    // }
-
-    // $returnArrayFinal["status"] = "1";
-    // $returnArrayFinal["message"] = "Getting friend names";
-    // $returnArrayFinal["num_friends"] = $num_friends;
-
-    // for( $i = 0; $i<$num_friends; $i++ ) {
-    //     $stmt2 = $mysqli->prepare("SELECT username, first_name, last_name FROM users where member2_id = $returnArray[$i]['member2_id']");  
-    //     $stmt2->execute();
-    //     $result2 = $stmt2->get_result();
-    //     echo json_encode($result2);
-    // }
-            
-    //return;
-    
+    }
+//}
+    if ($num_friends == 0 && $num_friends2 == 0){
+        $returnArray["status"] = "0";
+        $returnArray["message"] = "No friends found.  Add some!";
+    }
+    echo json_encode($returnArray);
+    return;    
 ?>
