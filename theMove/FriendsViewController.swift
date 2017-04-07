@@ -76,6 +76,7 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
                         self.friendsFromDatabase.append(FriendData(firstName: fname!, lastName: lname!, userName: username!))
                     }
                 }
+                self.friendsFromDatabase.sort { $0.firstName.lowercased() < $1.firstName.lowercased() }
             }
             DispatchQueue.main.async {
                 self.acceptedtableView.reloadData()
