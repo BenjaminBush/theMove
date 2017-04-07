@@ -58,7 +58,7 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
             }
             else {
                 // user is moving, but to a different event --> move them here and remove them from prev event
-                moveButton.backgroundColor = UIColor.red
+                moveButton.backgroundColor = UIColor.green
                 removeUser(eventToRemove: results as! String)
                 moveUser()
                 
@@ -67,7 +67,7 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         
         else {
             // user has not yet selected a move
-            moveButton.backgroundColor = UIColor.red
+            moveButton.backgroundColor = UIColor.green
             
             moveUser()
         }
@@ -105,7 +105,7 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 if let response = json.dictionary?["status"]?.stringValue {
                     if(response == "1") {
                         print("move user worked " + self.userid)
-                        self.moveButton.backgroundColor = UIColor.red
+                        self.moveButton.backgroundColor = UIColor.green
                     }
                 }
             }
@@ -246,7 +246,7 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         
         if let results = UserDefaults.standard.value(forKey: "eventid") {
             if (String(describing: results) == String(eventID)) {
-                moveButton.backgroundColor = UIColor.red
+                moveButton.backgroundColor = UIColor.green
             }
         }
 
