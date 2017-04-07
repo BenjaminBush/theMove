@@ -7,11 +7,10 @@
      */
     // Use htmlentities to parse bad strings
     $username = htmlentities($_REQUEST["username"]);
-    $password = htmlentities($_REQUEST["password"]);
 
  
     // Make sure all variables have value
-    if (empty($username) || empty($password)) {
+    if (empty($username)) {
         $returnArray["status"] = "400";
         $returnArray["message"] = "Missing required information";
         echo json_encode($returnArray);
@@ -34,21 +33,12 @@
     $stmt->bind_result($user, $pass, $id, $first, $last, $email);
     $stmt->fetch();
 
-    if (crypt($password, $pass) == $pass) {
-	    # Login successful
-	    $returnArray["status"] = "200";
-        $returnArray["message"] = "Login Successful";
-        $returnArray["user_id"] = $id;
-        $returnArray["username"] = $username;
-        $returnArray["first_name"] = $first;
-        $returnArray["last_name"] = $last;
-        $returnArray["email"] = $email;
-	    echo json_encode($returnArray);
-
-    } else {
-        # Login failed
-        $returnArray["status"] = "400";
-        $returnArray["message"] = "Password authentication failed";
-        echo json_encode($returnArray);
-    }
+    $returnArray["status"] = "200";
+    $returnArray["message"] = "LogGet Info Successful";
+    $returnArray["user_id"] = $id;
+    $returnArray["username"] = $username;
+    $returnArray["first_name"] = $first;
+    $returnArray["last_name"] = $last;
+    $returnArray["email"] = $email;
+    echo json_encode($returnArray);
 ?>

@@ -51,7 +51,9 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 // user is already going to this event, so remove them from it
                 
                 removeUser(eventToRemove: results as! String)
-                moveButton.backgroundColor = UIColor.yellow
+                // CHANGE TO BETTER COLOR
+                moveButton.backgroundColor = UIColor.init(red: 252/255, green: 255/255, blue: 233/255, alpha: 1.0)
+                //252 255 233
                 UserDefaults.standard.removeObject(forKey: "eventid")
             }
             else {

@@ -24,8 +24,11 @@
     require 'database.php';
     $stmt = $mysqli->prepare("SELECT user_id, username, first_name, last_name FROM users");
     if (!$stmt) {
-	printf("Query Prep Failed: %s\n", $mysqli->error);
-	exit;
+	    printf("Query Prep Failed: %s\n", $mysqli->error);
+        $returnArray["status"] = "400";
+        $returnArray["message"] = "Failed to prepare the first statement";
+        echo json_encode($returnArray);
+        return json_encode($returnArray);
     }
 
     $stmt->execute();
@@ -39,22 +42,48 @@
         }
     }
 
-    $stmt2 = $mysqli->prepare("INSERT INTO users(username, first_name, last_name, password) VALUES(?, ?, ?, ?)");
+    $stmt2 = $mysqli->prepare("INSERT INTO users(username, first_name, last_name, password, email) VALUES(?, ?, ?, ?, ?)");
     
     if (!$stmt2) {
         printf("Query Prep Failed: %s\n", $mysqli->error);
+        $returnArray["message"] = "Something went wrong with the insert";
+        $returnArray["status"] = 400;
+        echo json_encode($returnArray);
+        return json_encode($returnArray);
     }
 
     $encrypted_pass = crypt($password);
 	
 
-    $stmt2->bind_param('ssss', $username, $firstname, $lastname, $encrypted_pass);
+    $stmt2->bind_param('sssss', $username, $firstname, $lastname, $encrypted_pass, $email);
     $stmt2->execute();
     if ($stmt2) {
         $returnArray["status"] = "200";
-	$returnArray["message"] = "OK";
-	echo json_encode($returnArray);
-	return json_encode($returnArray);
+        $returnArray["message"] = "OK";
+        $returnArray["username"] = $username;
+        $returnArray["first_name"] = $firstname;
+        $returnArray["last_name"] = $lastname;
+        $returnArray["email"] = $emaiil;
+
+
+        $stmt3 = $mysqli->prepare("SELECT user_id FROM users WHERE username=?");
+        if (!$stmt3) {
+            printf("Query Prep Failed: %s\n", $mysqli->error);
+            $returnArray["status"] = "400";
+            $returnArray["messagae"] = "Something wrong with getting the id";
+            echo json_encode($returnArray);
+            return json_encode($returnArray);
+
+        }
+        $stmt3->bind_param('s', $username);
+        $stmt3->execute();
+
+        $stmt3->bind_result($user_id);
+        $stmt3->fetch();
+
+        $returnArray["user_id"] = $user_id;
+        echo json_encode($returnArray);
+        return json_encode($returnArray);
     } else {
 	$returnArray["status"] = "400";
 	$returnArray["message"] = "Failed to insert user into the database";

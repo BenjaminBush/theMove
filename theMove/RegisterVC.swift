@@ -23,7 +23,7 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
     }
 
-    @IBAction func register_click(_ sender: UIButton) {
+    @IBAction func register_click(_ sender: Any) {
         // If no text
         let username_empty = usernameTxt.text!.isEmpty
         let password_empty = usernameTxt.text!.isEmpty
@@ -64,38 +64,55 @@ class RegisterVC: UIViewController {
             
             let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
                 
-                //                if error != nil{
-                //                    print("1\(error)")
-                //                }
-                //                do {
-                //                    let json = JSON(data: data!)
-                //                    let status = json["status"].stringValue
-                //                    print("status " + status)
-                //                    if (status == "400") {
-                //                        self.usernameTxt.text = "Username is already taken"
-                //                        self.usernameTxt.textColor = UIColor.red
-                //                    }
-                //                }
                 if error != nil{
                     print("1\(error)")
                 }
-                else{
+                do {
                     let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                     print("response string = \(responseString!)")
-                    
+
                     let json = JSON.init(parseJSON: responseString as! String)
-                    
+                
+                    if let first = json.dictionary?["first_name"]?.stringValue {
+                        UserDefaults.standard.setValue(first, forKey: "firstname")
+                    }
+                    if let last = json.dictionary?["last_name"]?.stringValue {
+                        UserDefaults.standard.setValue(last, forKey: "lastname")
+                    }
+                    if let userid = json.dictionary?["user_id"]?.stringValue {
+                        print("getting user id " + userid)
+                        UserDefaults.standard.setValue(userid, forKey: "userid")
+                    }
+                    if let email = json.dictionary?["email"]?.stringValue {
+                        UserDefaults.standard.setValue(email, forKey: "email")
+                    }
+                    if let username = json.dictionary?["username"]?.stringValue {
+                        UserDefaults.standard.setValue(username, forKey: "username")
+                    }
                     if let status = json.dictionary?["status"]?.stringValue {
                         print(status)
+                        
+                        if (status == "400") {
+                            print("status was 400 and worked")
+                            self.usernameTxt.text = "Username is already taken"
+                            self.usernameTxt.textColor = UIColor.red
+                        }
+                        print("before status 200")
+                        if(status == "200"){
+                            print("status was 200 and worked")
+                            OperationQueue.main.addOperation{
+                             self.performSegue(withIdentifier: "login", sender: self)
+                            }
+                        }
+                        
                     }
-                    
-                    
                 }
             });
             task.resume()
         }
-    }
 
+    }
+    
 
     @IBAction func login_click(_ sender: Any) {
         performSegue(withIdentifier: "send_to_loginVC", sender: self);
