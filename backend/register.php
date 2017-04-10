@@ -52,7 +52,7 @@
         return json_encode($returnArray);
     }
 
-    $encrypted_pass = crypt($password);
+    $encrypted_pass = password_hash($password, PASSWORD_BCRYPT);
 	
 
     $stmt2->bind_param('sssss', $username, $firstname, $lastname, $encrypted_pass, $email);
@@ -63,7 +63,7 @@
         $returnArray["username"] = $username;
         $returnArray["first_name"] = $firstname;
         $returnArray["last_name"] = $lastname;
-        $returnArray["email"] = $emaiil;
+        $returnArray["email"] = $email;
 
 
         $stmt3 = $mysqli->prepare("SELECT user_id FROM users WHERE username=?");

@@ -47,15 +47,36 @@
     }
     $stmt2->bind_param('ss', $sender_id, $receiver_id);
     $stmt2->execute();
-    $stmt2->bind_result($status, $initiater_id);
+    $stmt2->bind_result($status2, $initiater_id);
     $stmt2->fetch();
     $stmt2->close();
-    if ($status == "ACCEPTED") {
+    if ($status2 == "ACCEPTED") {
         $returnArray["status"] = "302";
         $returnArray["message"] = "You are already friends with this user";
-        echo json_encode($returnArray)
+        echo json_encode($returnArray);
+        return json_encode($returnArray);
     } 
-    else {
+    
+    
+    $stmt2a = $mysqli->prepare("SELECT status, initiater_id FROM connections WHERE member1_id=? AND member2_id=?");
+    
+    if (!$stmt2a) {
+        printf("Query Prep Failed: %s\n", $mysqli->error);
+    }
+    $stmt2a->bind_param('ss', $receiver_id, $sender_id);
+    $stmt2a->execute();
+    $stmt2a->bind_result($status2a, $initiater_id);
+    $stmt2a->fetch();
+    $stmt2a->close();
+    
+    if ($status2a == "ACCEPTED") {
+        $returnArray["status"] = "302";
+        $returnArray["message"] = "You are already friends with this user";
+        echo json_encode($returnArray);
+        return json_encode($returnArray);
+    } 
+    
+ 
        // Initiate the connection
         $stmt3 = $mysqli->prepare("INSERT INTO connections(member1_id, member2_id, status, initiater_id) VALUES(?, ?, ?, ?)");
         if (!$stmt3) {
@@ -76,5 +97,5 @@
             return json_encode($returnArray);
         } 
         $stmt3->close();
-    }
+    
 ?>

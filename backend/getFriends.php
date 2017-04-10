@@ -62,7 +62,7 @@
     else{
         $returnArray["status"] = "1";
         $returnArray["message"] = "Loaded friends2 successfully!";
-        $returnArray["num_friends"] = $num_friends2;
+        $returnArray["num_friends"] = $num_friends2+$num_friends;
         // $index = 0;
         while($row = $result2->fetch_assoc()) {
             $returnArray[$index]["first_name"]= $row["first_name"];

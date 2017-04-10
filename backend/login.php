@@ -34,7 +34,7 @@
     $stmt->bind_result($user, $pass, $id, $first, $last, $email);
     $stmt->fetch();
 
-    if (crypt($password, $pass) == $pass) {
+    if (password_verify($password, $pass))  {
 	    # Login successful
 	    $returnArray["status"] = "200";
         $returnArray["message"] = "Login Successful";

@@ -22,13 +22,12 @@
         return;
     }
 
-
     require 'database.php';
 
     $stmt0 = $mysqli->prepare("SELECT user_id FROM users WHERE username=?");
     if (!$stmt0) {
-        printf("Query Prep Failed: %s\n", $mysqli->error);
-        exit;
+    printf("Query Prep Failed: %s\n", $mysqli->error);
+    exit;
     }
 
     $stmt0->bind_param('s', $host);
