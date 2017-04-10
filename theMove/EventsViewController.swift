@@ -10,7 +10,7 @@ import UIKit
 
 struct MoveData {
     var eventName: String
-    var peopleGoing: String
+    var peopleGoing: Int
     var eventID: Int
     var eventDate: String
 }
@@ -26,7 +26,7 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
         
         let cell =  UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         cell.textLabel!.text = eventsFromDatabase[indexPath.row].eventName
-        cell.detailTextLabel?.text = eventsFromDatabase[indexPath.row].peopleGoing + " people moving here"
+        cell.detailTextLabel?.text = String(eventsFromDatabase[indexPath.row].peopleGoing) + " moving"
         
         return cell
     }
@@ -46,7 +46,7 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
             if let destination = segue.destination as? EventDetailViewController {
                 let index = tableView.indexPathForSelectedRow?.row
                 destination.selectedEventname = eventsFromDatabase[index!].eventName
-                destination.selectedNumPeople = eventsFromDatabase[index!].peopleGoing
+                destination.selectedNumPeople = String(eventsFromDatabase[index!].peopleGoing)
                 destination.selectedDate = eventsFromDatabase[index!].eventDate
                 destination.eventID = eventsFromDatabase[index!].eventID
             }
@@ -85,13 +85,14 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
                     let i = String(index)
                     if let event = json.dictionary?[i] {
                         let name = event.dictionary?["event_name"]?.stringValue
-                        let attending = event.dictionary?["numGuests"]?.stringValue
+                        let attending = event.dictionary?["numGuests"]?.intValue
                         let id = event.dictionary?["event_id"]?.intValue
                         let date = event.dictionary?["event_date"]?.stringValue
                         self.eventsFromDatabase.append(MoveData(eventName: name!, peopleGoing: attending!, eventID: id!, eventDate: date!))
                     }
 
                 }
+                self.eventsFromDatabase.sort(by: { $0.peopleGoing > $1.peopleGoing })
                 
             }
             DispatchQueue.main.async {
@@ -121,10 +122,6 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
         
         
         self.title = "Moves"
-        
-        if let results = UserDefaults.standard.value(forKey: "firstname") {
-            print("first name " + String(describing: results))
-        }
 
         // Do any additional setup after loading the view.
     }

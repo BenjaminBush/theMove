@@ -74,7 +74,10 @@ class LoginVC: UIViewController {
                     print(message)
                     
                     if (status == "200") {
-                        self.performSegue(withIdentifier: "login_success", sender: self)
+                        OperationQueue.main.addOperation {
+                            self.performSegue(withIdentifier: "login_success", sender: self)
+                        }
+                        
                   } else {
                         print("do you wanna go to war bah-lah-kay?")
                    }
@@ -105,7 +108,7 @@ class LoginVC: UIViewController {
             }
             else{
                 let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                //print("response string = \(responseString!)")
+                print("response string = \(responseString!)")
                 
                 let json = JSON.init(parseJSON: responseString as! String)
                 
@@ -116,6 +119,7 @@ class LoginVC: UIViewController {
                     UserDefaults.standard.setValue(last, forKey: "lastname")
                 }
                 if let userid = json.dictionary?["user_id"]?.stringValue {
+                    print("getting user id " + userid)
                     UserDefaults.standard.setValue(userid, forKey: "userid")
                 }
                 if let email = json.dictionary?["email"]?.stringValue {

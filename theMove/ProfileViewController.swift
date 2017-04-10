@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var surveyButton: UIButton!
     
     var username: String!
     var userid: String!
@@ -81,8 +82,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         task.resume()
     }
-
     
+    @IBAction func surveyButtonPressed(_ sender: UIButton) {
+        let url = URL(string: "https://goo.gl/forms/govRxgkImyl2bVfy1")!
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,42 +101,18 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
+        surveyButton.layer.cornerRadius = 5
+        
         self.title = "My Profile"
-        
-        getUserEventData()
-        
-//        //testing print statements
-//        if let results = UserDefaults.standard.value(forKey: "firstname") {
-//            print("first name " + String(describing: results))
-//        }
-//        if let results = UserDefaults.standard.value(forKey: "userid") {
-//            print("user id " + String(describing: results))
-//        }
-//        
-//        
-//        if let results = UserDefaults.standard.value(forKey: "firstname") {
-//            firstName = String(describing: results)
-//        }
-//        if let results = UserDefaults.standard.value(forKey: "lastname") {
-//            lastName = String(describing: results)
-//        }
-//        if let results = UserDefaults.standard.value(forKey: "username") {
-//            userName.text = "@" + String(describing: results)
-//        }
-//        
-//        fullName.text = firstName + " " + lastName
+
         
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
-        //testing print statements
-        if let results = UserDefaults.standard.value(forKey: "firstname") {
-            print("first name " + String(describing: results))
-        }
-        if let results = UserDefaults.standard.value(forKey: "userid") {
-            print("user id " + String(describing: results))
-        }
         
+        pastEventsTitles.removeAll()
+        getUserEventData()
         
         if let results = UserDefaults.standard.value(forKey: "firstname") {
             firstName = String(describing: results)
