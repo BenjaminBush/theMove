@@ -84,7 +84,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     @IBAction func surveyButtonPressed(_ sender: UIButton) {
-        let url = URL(string: "https://goo.gl/forms/govRxgkImyl2bVfy1")!
+        let url = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSezdKcubp7xReGHtC0KCE1WiI6eUc2gSiBODiQA-VDrG7c5yQ/viewform")!
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
