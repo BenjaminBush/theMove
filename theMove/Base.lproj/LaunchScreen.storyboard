@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,11 +24,16 @@
                         <subviews>
                             <imageView opaque="NO" multipleTouchEnabled="YES" contentMode="center" image="iTunesArtwork@1x" translatesAutoresizingMaskIntoConstraints="NO" id="nwQ-x3-lCF">
                                 <rect key="frame" x="55" y="198" width="265" height="270"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="265" id="eIp-9M-Ffl"/>
+                                    <constraint firstAttribute="height" constant="270" id="rll-cy-H63"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="theMove" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DrP-tr-yWf">
-                                <rect key="frame" x="135" y="476" width="124" height="56"/>
+                                <rect key="frame" x="66" y="476" width="243" height="56"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="124" id="XVL-Vl-U9U"/>
+                                    <constraint firstAttribute="width" constant="243" id="iaf-Di-04S"/>
+                                    <constraint firstAttribute="height" constant="56" id="wS1-6b-HZ3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="27"/>
                                 <color key="textColor" red="0.98431372549019602" green="0.99215686274509807" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
@@ -37,13 +42,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.27687314149999998" green="0.32498598099999998" blue="0.36254799370000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="DrP-tr-yWf" secondAttribute="bottom" constant="135" id="0eE-YA-0to"/>
-                            <constraint firstItem="DrP-tr-yWf" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="135" id="Ztl-QY-5JP"/>
-                            <constraint firstItem="nwQ-x3-lCF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="imh-4K-np5"/>
-                            <constraint firstItem="nwQ-x3-lCF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="kdK-Mz-Jk7"/>
-                            <constraint firstItem="DrP-tr-yWf" firstAttribute="top" secondItem="nwQ-x3-lCF" secondAttribute="bottom" constant="8" symbolic="YES" id="my7-JX-Onj"/>
-                            <constraint firstItem="nwQ-x3-lCF" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="39" id="stP-by-yRw"/>
-                            <constraint firstItem="nwQ-x3-lCF" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="178" id="xnV-2o-Ldd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nwQ-x3-lCF" secondAttribute="trailing" constant="39" id="Bwm-du-duu"/>
+                            <constraint firstItem="nwQ-x3-lCF" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="39" id="D8M-IH-qk5"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="DrP-tr-yWf" secondAttribute="bottom" constant="135" id="YBX-1s-V1M"/>
+                            <constraint firstItem="DrP-tr-yWf" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="50" id="aRX-GL-z1Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DrP-tr-yWf" secondAttribute="trailing" constant="50" id="bLu-Ps-LS3"/>
+                            <constraint firstItem="DrP-tr-yWf" firstAttribute="top" secondItem="nwQ-x3-lCF" secondAttribute="bottom" constant="8" id="kkD-25-f1H"/>
                         </constraints>
                     </view>
                 </viewController>
