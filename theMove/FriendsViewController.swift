@@ -155,7 +155,13 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
         self.title = "Friends"
         
         errorMessage.isHidden = true
-        // Do any additional setup after loading the view.
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {

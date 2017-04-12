@@ -102,6 +102,13 @@ class AddEventVC: UIViewController {
         
     }
     
+//    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+//        if (text == "\n") {
+//            textView.resignFirstResponder()
+//        }
+//        return true
+//    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,6 +116,18 @@ class AddEventVC: UIViewController {
         // Do any additional setup after loading the view.
         createButton.layer.cornerRadius = 5
         successLabel.isHidden = true
+        
+        //eventTitle.returnKeyType = UIReturnKeyType.done
+        //address.returnKeyType = UIReturnKeyType.done
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+        
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {
