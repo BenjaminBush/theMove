@@ -229,16 +229,21 @@
 				TargetAttributes = {
 					916E350C1E58B6730055EECB = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5EJ6Q2MX62;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
 					};
 					916E35201E58B6740055EECB = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5EJ6Q2MX62;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Manual;
 						TestTargetID = 916E350C1E58B6730055EECB;
 					};
 					916E352B1E58B6740055EECB = {
 						CreatedOnToolsVersion = 7.2;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Manual;
 						TestTargetID = 916E350C1E58B6730055EECB;
 					};
 				};
@@ -382,6 +387,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -428,6 +434,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -453,6 +460,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 5EJ6Q2MX62;
 				INFOPLIST_FILE = theMove/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = theMove.theMove;
@@ -465,6 +475,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 5EJ6Q2MX62;
 				INFOPLIST_FILE = theMove/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = theMove.theMove;
@@ -477,6 +490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 5EJ6Q2MX62;
 				INFOPLIST_FILE = theMoveTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = theMove.theMoveTests;
@@ -490,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = theMoveTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = theMove.theMoveTests;
@@ -502,6 +517,7 @@
 		916E353C1E58B6740055EECB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = theMoveUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = theMove.theMoveUITests;
@@ -515,6 +531,7 @@
 		916E353D1E58B6740055EECB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = theMoveUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = theMove.theMoveUITests;
