@@ -21,6 +21,12 @@ class RegisterVC: UIViewController {
     // Initialize Function
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 
     @IBAction func register_click(_ sender: Any) {

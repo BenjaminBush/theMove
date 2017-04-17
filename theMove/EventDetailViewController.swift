@@ -51,7 +51,6 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 // user is already going to this event, so remove them from it
                 
                 removeUser(eventToRemove: results as! String)
-                // CHANGE TO BETTER COLOR
                 moveButton.backgroundColor = UIColor.init(red: 252/255, green: 255/255, blue: 233/255, alpha: 1.0)
                 //252 255 233
                 UserDefaults.standard.removeObject(forKey: "eventid")
@@ -241,7 +240,14 @@ class EventDetailViewController: UIViewController, UITableViewDataSource, UITabl
         
         eventName.text = selectedEventname
         numPeople.text = selectedNumPeople + " people moving"
-        date.text = selectedDate
+        
+        let dateArr = selectedDate.components(separatedBy: " ")
+        var timeArr = dateArr[1].components(separatedBy: ":")
+        
+        if(Int(String(timeArr[0][timeArr[0].startIndex])) == 0) {
+            timeArr[0].remove(at: timeArr[0].startIndex)
+        }
+        date.text = dateArr[0] + " @ " + timeArr[0] + ":" + timeArr[1]
         
         
         if let results = UserDefaults.standard.value(forKey: "eventid") {

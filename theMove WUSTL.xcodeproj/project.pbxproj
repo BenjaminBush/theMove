@@ -47,16 +47,16 @@
 
 /* Begin PBXFileReference section */
 		68EA21FD1E8320A000390CBB /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		916E350D1E58B6730055EECB /* theMove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theMove.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		916E350D1E58B6730055EECB /* theMove WUSTL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "theMove WUSTL.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		916E35101E58B6730055EECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		916E35151E58B6730055EECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		916E35171E58B6730055EECB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		916E351A1E58B6730055EECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		916E351C1E58B6730055EECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		916E35211E58B6740055EECB /* theMoveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = theMoveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		916E35211E58B6740055EECB /* theMove WUSTLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "theMove WUSTLTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		916E35251E58B6740055EECB /* theMoveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theMoveTests.swift; sourceTree = "<group>"; };
 		916E35271E58B6740055EECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		916E352C1E58B6740055EECB /* theMoveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = theMoveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		916E352C1E58B6740055EECB /* theMove WUSTLUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "theMove WUSTLUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		916E35301E58B6740055EECB /* theMoveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theMoveUITests.swift; sourceTree = "<group>"; };
 		916E35321E58B6740055EECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		916E35421E58BDB10055EECB /* background3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background3.jpg; sourceTree = "<group>"; };
@@ -112,9 +112,9 @@
 		916E350E1E58B6730055EECB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				916E350D1E58B6730055EECB /* theMove.app */,
-				916E35211E58B6740055EECB /* theMoveTests.xctest */,
-				916E352C1E58B6740055EECB /* theMoveUITests.xctest */,
+				916E350D1E58B6730055EECB /* theMove WUSTL.app */,
+				916E35211E58B6740055EECB /* theMove WUSTLTests.xctest */,
+				916E352C1E58B6740055EECB /* theMove WUSTLUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,9 +164,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		916E350C1E58B6730055EECB /* theMove */ = {
+		916E350C1E58B6730055EECB /* theMove WUSTL */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 916E35351E58B6740055EECB /* Build configuration list for PBXNativeTarget "theMove" */;
+			buildConfigurationList = 916E35351E58B6740055EECB /* Build configuration list for PBXNativeTarget "theMove WUSTL" */;
 			buildPhases = (
 				916E35091E58B6730055EECB /* Sources */,
 				916E350A1E58B6730055EECB /* Frameworks */,
@@ -176,14 +176,14 @@
 			);
 			dependencies = (
 			);
-			name = theMove;
+			name = "theMove WUSTL";
 			productName = theMove;
-			productReference = 916E350D1E58B6730055EECB /* theMove.app */;
+			productReference = 916E350D1E58B6730055EECB /* theMove WUSTL.app */;
 			productType = "com.apple.product-type.application";
 		};
-		916E35201E58B6740055EECB /* theMoveTests */ = {
+		916E35201E58B6740055EECB /* theMove WUSTLTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 916E35381E58B6740055EECB /* Build configuration list for PBXNativeTarget "theMoveTests" */;
+			buildConfigurationList = 916E35381E58B6740055EECB /* Build configuration list for PBXNativeTarget "theMove WUSTLTests" */;
 			buildPhases = (
 				916E351D1E58B6740055EECB /* Sources */,
 				916E351E1E58B6740055EECB /* Frameworks */,
@@ -194,14 +194,14 @@
 			dependencies = (
 				916E35231E58B6740055EECB /* PBXTargetDependency */,
 			);
-			name = theMoveTests;
+			name = "theMove WUSTLTests";
 			productName = theMoveTests;
-			productReference = 916E35211E58B6740055EECB /* theMoveTests.xctest */;
+			productReference = 916E35211E58B6740055EECB /* theMove WUSTLTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		916E352B1E58B6740055EECB /* theMoveUITests */ = {
+		916E352B1E58B6740055EECB /* theMove WUSTLUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 916E353B1E58B6740055EECB /* Build configuration list for PBXNativeTarget "theMoveUITests" */;
+			buildConfigurationList = 916E353B1E58B6740055EECB /* Build configuration list for PBXNativeTarget "theMove WUSTLUITests" */;
 			buildPhases = (
 				916E35281E58B6740055EECB /* Sources */,
 				916E35291E58B6740055EECB /* Frameworks */,
@@ -212,9 +212,9 @@
 			dependencies = (
 				916E352E1E58B6740055EECB /* PBXTargetDependency */,
 			);
-			name = theMoveUITests;
+			name = "theMove WUSTLUITests";
 			productName = theMoveUITests;
-			productReference = 916E352C1E58B6740055EECB /* theMoveUITests.xctest */;
+			productReference = 916E352C1E58B6740055EECB /* theMove WUSTLUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -229,7 +229,7 @@
 				TargetAttributes = {
 					916E350C1E58B6730055EECB = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 5EJ6Q2MX62;
+						DevelopmentTeam = 8PHWAU8725;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -248,7 +248,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 916E35081E58B6730055EECB /* Build configuration list for PBXProject "theMove" */;
+			buildConfigurationList = 916E35081E58B6730055EECB /* Build configuration list for PBXProject "theMove WUSTL" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -261,9 +261,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				916E350C1E58B6730055EECB /* theMove */,
-				916E35201E58B6740055EECB /* theMoveTests */,
-				916E352B1E58B6740055EECB /* theMoveUITests */,
+				916E350C1E58B6730055EECB /* theMove WUSTL */,
+				916E35201E58B6740055EECB /* theMove WUSTLTests */,
+				916E352B1E58B6740055EECB /* theMove WUSTLUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -338,12 +338,12 @@
 /* Begin PBXTargetDependency section */
 		916E35231E58B6740055EECB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 916E350C1E58B6730055EECB /* theMove */;
+			target = 916E350C1E58B6730055EECB /* theMove WUSTL */;
 			targetProxy = 916E35221E58B6740055EECB /* PBXContainerItemProxy */;
 		};
 		916E352E1E58B6740055EECB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 916E350C1E58B6730055EECB /* theMove */;
+			target = 916E350C1E58B6730055EECB /* theMove WUSTL */;
 			targetProxy = 916E352D1E58B6740055EECB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -462,10 +462,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 5EJ6Q2MX62;
+				DEVELOPMENT_TEAM = 8PHWAU8725;
 				INFOPLIST_FILE = theMove/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = theMove.theMove;
+				PRODUCT_BUNDLE_IDENTIFIER = theMove;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -477,10 +477,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 5EJ6Q2MX62;
+				DEVELOPMENT_TEAM = 8PHWAU8725;
 				INFOPLIST_FILE = theMove/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = theMove.theMove;
+				PRODUCT_BUNDLE_IDENTIFIER = theMove;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -496,7 +496,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = theMove.theMoveTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/theMove.app/theMove";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/theMove WUSTL.app/theMove WUSTL";
 			};
 			name = Debug;
 		};
@@ -510,7 +510,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = theMove.theMoveTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/theMove.app/theMove";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/theMove WUSTL.app/theMove WUSTL";
 			};
 			name = Release;
 		};
@@ -545,7 +545,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		916E35081E58B6730055EECB /* Build configuration list for PBXProject "theMove" */ = {
+		916E35081E58B6730055EECB /* Build configuration list for PBXProject "theMove WUSTL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				916E35331E58B6740055EECB /* Debug */,
@@ -554,7 +554,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		916E35351E58B6740055EECB /* Build configuration list for PBXNativeTarget "theMove" */ = {
+		916E35351E58B6740055EECB /* Build configuration list for PBXNativeTarget "theMove WUSTL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				916E35361E58B6740055EECB /* Debug */,
@@ -563,7 +563,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		916E35381E58B6740055EECB /* Build configuration list for PBXNativeTarget "theMoveTests" */ = {
+		916E35381E58B6740055EECB /* Build configuration list for PBXNativeTarget "theMove WUSTLTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				916E35391E58B6740055EECB /* Debug */,
@@ -572,7 +572,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		916E353B1E58B6740055EECB /* Build configuration list for PBXNativeTarget "theMoveUITests" */ = {
+		916E353B1E58B6740055EECB /* Build configuration list for PBXNativeTarget "theMove WUSTLUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				916E353C1E58B6740055EECB /* Debug */,

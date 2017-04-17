@@ -20,6 +20,10 @@ class AddEventVC: UIViewController {
     var username: String!
     
     @IBAction func createButtonPressed(_ sender: UIButton) {
+        dateTime.timeZone = NSTimeZone.local
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd hh:mm"
+        
         let titleEmpty = eventTitle.text!.isEmpty
         let addressEmpty = address.text!.isEmpty
         
@@ -51,11 +55,14 @@ class AddEventVC: UIViewController {
             let date = dateTime.date
             let addr = address.text
             
+            let dateString = dateFormatter.string(from: date)
+            print(dateString)
+            
             if let results = UserDefaults.standard.value(forKey: "username") {
                 username = String(describing: results)
             }
             
-            let body1 = "host=" + username + "&name=" + name! + "&date=" + String(describing: date)
+            let body1 = "host=" + username + "&name=" + name! + "&date=" + dateString
             let body2 = "&address=" + addr!
             let body3 = "&active=1"
             
@@ -83,21 +90,7 @@ class AddEventVC: UIViewController {
             });
             
             task.resume()
-            
-//            // add user to this move
-//            if let results = UserDefaults.standard.value(forKey: "eventid") {
-//
-//                // user is going to a diff event so move them here instead
-//                removeUser(eventToRemove: results as! String)
-//                moveUser()
-//                    
-//                
-//            }
-//                
-//            else {
-//                // user has not yet selected a move                
-//                moveUser()
-//            }
+
         }
         
     }
