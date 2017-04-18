@@ -23,7 +23,7 @@
 
     if ($username == "username already taken" || $username == "Username already taken") {
         $returnArray["status"] = "400";
-        $returnArray["message"] = "Username already taken";
+        $returnArray["message"] = "Username already taken, please choose a different username";
         echo json_encode($returnArray);
         return;
     }
