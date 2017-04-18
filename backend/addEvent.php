@@ -46,7 +46,9 @@
 
     $stmt->bind_param('isssii', $host_id, $name, $date, $addr, $numGuests, $active);
     $stmt->execute();
-
+    
+    
+   
     if ($stmt) {
         $returnArray["status"] = "200";
         $returnArray["message"] = "OK";
@@ -54,9 +56,10 @@
         return json_encode($returnArray);
     } else {
         $returnArray["status"] = "400";
-        $returnArray["message"] = "Failed to insert user into the database";
+        $returnArray["message"] = "Failed to insert event into the database";
         echo json_encode($returnArray);
         return json_encode($returnArray);
     } 
     $stmt->close();
+    
 ?>

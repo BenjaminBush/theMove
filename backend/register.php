@@ -21,6 +21,13 @@
         return;
     }
 
+    if ($username == "username already taken" || $username == "Username already taken") {
+        $returnArray["status"] = "400";
+        $returnArray["message"] = "Username already taken";
+        echo json_encode($returnArray);
+        return;
+    }
+
     require 'database.php';
     $stmt = $mysqli->prepare("SELECT user_id, username, first_name, last_name FROM users");
     if (!$stmt) {
