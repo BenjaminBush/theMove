@@ -21,7 +21,7 @@
         return;
     }
 
-    if (preg_match('/\s/',$username)) {
+    if (preg_match('/\s/',$username) || preg_match('/[\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\]/', $username)) {
         $returnArray["status"] = "400";
         $returnArray["message"] = "Username formatted incorrectly";
         echo json_encode($returnArray);
