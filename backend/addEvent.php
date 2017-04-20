@@ -10,8 +10,9 @@
     $name = htmlentities($_REQUEST["name"]);
     $date = htmlentities($_REQUEST["date"]);
     $addr = htmlentities($_REQUEST["address"]);
-    $numGuests = 0;
+    $numGuests = 1;
     $active = htmlentities($_REQUEST["active"]);
+    $event_id = 0;
 
  
     // Make sure all variables have value
@@ -46,14 +47,16 @@
 
     $stmt->bind_param('isssii', $host_id, $name, $date, $addr, $numGuests, $active);
     $stmt->execute();
+    //$event_id = mysql_insert_id();
+    //$returnArray["last_event"] = $event_id;
     
     
    
     if ($stmt) {
         $returnArray["status"] = "200";
         $returnArray["message"] = "OK";
-        echo json_encode($returnArray);
-        return json_encode($returnArray);
+        //echo json_encode($returnArray);
+        //return json_encode($returnArray);
     } else {
         $returnArray["status"] = "400";
         $returnArray["message"] = "Failed to insert event into the database";
@@ -62,4 +65,43 @@
     } 
     $stmt->close();
     
+    $getID = $mysqli->prepare("SELECT MAX(event_id) from events");
+    if (!$getID) {
+            printf("Delete query Prep Failed: %s\n", $mysqli->error);
+        }
+    $getID->execute();
+    $getID->bind_result($event_id);
+    $getID->fetch();
+    $getID->close();
+    
+    $returnArray["last_event"] = $event_id;
+    
+    if ($returnArray["status"] == "200") {
+        $checkDelete = $mysqli-> prepare("DELETE from guests where guest_id = ? and event_id in (SELECT event_id from events where active = 1)");
+        if (!$checkDelete) {
+            printf("Delete query Prep Failed: %s\n", $mysqli->error);
+        }
+        $checkDelete->bind_param('i', $host_id);
+        $checkDelete->execute();
+        if (!$checkDelete) {
+            $returnArray["status"] = "400";
+            $returnArray["message"] = "Failed to insert event into the database";
+            echo json_encode($returnArray);
+            return json_encode($returnArray);
+        }
+        $checkDelete->close();
+    
+        $stmt2 = $mysqli->prepare("INSERT into guests(event_id, guest_id) VALUES (?,?)");
+        if (!$stmt2) {
+            printf("Query Prep to insert host Failed: %s\n", $mysqli->error);
+         exit;
+         }
+        $stmt2->bind_param('ii', $event_id, $host_id);
+        $stmt2->execute(); 
+        if ($stmt2) {
+            echo json_encode($returnArray);
+            return json_encode($returnArray);
+        }
+        $stmt2->close();
+    }
 ?>
