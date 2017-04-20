@@ -21,9 +21,9 @@
         return;
     }
 
-    if ($username == "username already taken" || $username == "Username already taken") {
+    if (preg_match('/\s/',$username)) {
         $returnArray["status"] = "400";
-        $returnArray["message"] = "Username already taken, please choose a different username";
+        $returnArray["message"] = "Username formatted incorrectly";
         echo json_encode($returnArray);
         return;
     }
