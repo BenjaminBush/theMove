@@ -10,7 +10,7 @@
     $name = htmlentities($_REQUEST["name"]);
     $date = htmlentities($_REQUEST["date"]);
     $addr = htmlentities($_REQUEST["address"]);
-    $numGuests = 1;
+    $numGuests = 0;
     $active = htmlentities($_REQUEST["active"]);
     $event_id = 0;
 
